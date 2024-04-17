@@ -16,4 +16,29 @@ public class Usuario {
 				this.Correo=Correo;
 				this.Numero=Numero;
 			}
+
+	public String getLogin() {
+		return Login;
+	}
+
+	public String getContraseña() {
+		return Contraseña;
+	}
+
+	public String getID() {
+		return ID;
+	}
+
+	public String getNombre() {
+		return Nombre;
+	}
+
+	public String getCorreo() {
+		return Correo;
+	}
+
+	public int getNumero() {
+		return Numero;
+	}
+	
 }

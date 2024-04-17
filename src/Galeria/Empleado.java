@@ -14,4 +14,8 @@ public class Empleado extends Usuario{
 		this.AccesoGaleria=AccesoGaleria;
 	}
 
+	public Boolean getAccesoGaleria() {
+		return AccesoGaleria;
+	}
+
 }

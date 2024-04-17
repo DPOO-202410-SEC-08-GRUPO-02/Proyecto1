@@ -1,35 +1,10 @@
 package Galeria;
 
-public class Operador extends Empleado {
-
-	public int TurnoAnterior;
+public class Subasta {
 	
-	public Operador(String Login, String Contraseña,String ID,String Nombre,String Correo,int Numero, Boolean AccesoGaleria) {
-		super(Login,Contraseña,ID,Nombre,Correo, Numero,AccesoGaleria);
-		this.Login=Login;
-		this.Contraseña=Contraseña;
-		this.ID=ID;
-		this.Nombre=Nombre;
-		this.Correo=Correo;
-		this.Numero=Numero;
-		this.AccesoGaleria=AccesoGaleria;
-	}
-
-	public int getTurnoAnterior() {
-		return TurnoAnterior;
-	}
+	public Compra Compra;
 	
-	public void GenerarTurno() {
-		/*Genera otro turno (o inicia la subasta).
-		 * Los turnos se miden por el input del usuario.
-		 */
-	}
-	
-	public void ElegirGanador() {
-		/*Decide quien fue el ganador por el ultimo turno y verifica si el ganador si se puede permitir comprar la pieza (con el saldo maximo y dinero actual)*/
-	}
-	
-	public void AgregarOferta() {
+	public void generarOferta() {
 		/* No se (┬┬﹏┬┬), Majo ayudaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 		 * aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 		 * aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -37,4 +12,13 @@ public class Operador extends Empleado {
 		 * aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 		 * aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa*/
 	}
+	
+	public void getCompra() {
+		/*Estoy confundido con este*/
+	}
+	
+	public void verificarUsuario() {
+		/* En caso de que el usuario no este verificado al realizar una subasta hace el proceso para verificarlo y dejarlo participar en la subasta*/
+	}
+	
 }

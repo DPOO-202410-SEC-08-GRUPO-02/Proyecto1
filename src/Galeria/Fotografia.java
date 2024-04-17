@@ -32,4 +32,20 @@ public class Fotografia extends Pieza{
 			this.Instalacion=Instalacion;
 		}
 
+	public double getAlto() {
+		return Alto;
+	}
+
+	public double getAncho() {
+		return Ancho;
+	}
+
+	public Boolean getaColor() {
+		return aColor;
+	}
+
+	public Boolean getInstalacion() {
+		return Instalacion;
+	}
+
 }

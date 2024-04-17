@@ -14,4 +14,8 @@ public class Cliente extends Usuario {
 		this.Verificado=Verificado;
 	}
 
+	public Boolean getVerificado() {
+		return Verificado;
+	}
+
 }

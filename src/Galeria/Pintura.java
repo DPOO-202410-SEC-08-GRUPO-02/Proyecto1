@@ -32,4 +32,20 @@ public class Pintura extends Pieza{
 			this.Instalacion=Instalacion;
 		}
 
+	public double getAlto() {
+		return Alto;
+	}
+
+	public double getAncho() {
+		return Ancho;
+	}
+
+	public String getMovimientoArtistico() {
+		return MovimientoArtistico;
+	}
+
+	public Boolean getInstalacion() {
+		return Instalacion;
+	}
+
 }

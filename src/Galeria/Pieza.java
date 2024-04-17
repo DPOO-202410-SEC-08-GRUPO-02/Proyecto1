@@ -37,4 +37,79 @@ public Pieza(String ID, String Tecnica,String Autor,String Titulo,int Anio,Strin
 		this.ValorInicialS=ValorInicialS;
 	}
 
+
+public String getID() {
+	return ID;
+}
+
+
+public String getTecnica() {
+	return Tecnica;
+}
+
+
+public String getAutor() {
+	return Autor;
+}
+
+
+public String getTitulo() {
+	return Titulo;
+}
+
+
+public int getAnio() {
+	return Anio;
+}
+
+
+public String getLugar() {
+	return Lugar;
+}
+
+
+public String getEstado() {
+	return Estado;
+}
+
+
+public Boolean getDisponibilidad() {
+	return Disponibilidad;
+}
+
+
+public String getFechaLimite() {
+	return FechaLimite;
+}
+
+
+public double getValor() {
+	return Valor;
+}
+
+
+public Boolean getConsignacion() {
+	return Consignacion;
+}
+
+
+public Boolean getDevolucion() {
+	return Devolucion;
+}
+
+
+public Boolean getSubasta() {
+	return Subasta;
+}
+
+
+public Double getValorMinimoS() {
+	return ValorMinimoS;
+}
+
+
+public Double getValorInicialS() {
+	return ValorInicialS;
+}
+
 }

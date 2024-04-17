@@ -40,4 +40,32 @@ public class Escultura extends Pieza{
 			this.Electricidad=Electricidad;
 		}
 
+	public double getAlto() {
+		return Alto;
+	}
+
+	public double getAncho() {
+		return Ancho;
+	}
+
+	public double getProfundidad() {
+		return Profundidad;
+	}
+
+	public List<String> getMateriales() {
+		return Materiales;
+	}
+
+	public double getPeso() {
+		return Peso;
+	}
+
+	public Boolean getInstalacion() {
+		return Instalacion;
+	}
+
+	public Boolean getElectricidad() {
+		return Electricidad;
+	}
+
 }

@@ -33,4 +33,20 @@ public class Impresion extends Pieza{
 			this.Instalacion=Instalacion;
 		}
 
+	public double getAlto() {
+		return Alto;
+	}
+
+	public double getAncho() {
+		return Ancho;
+	}
+
+	public String getSoporte() {
+		return Soporte;
+	}
+
+	public Boolean getInstalacion() {
+		return Instalacion;
+	}
+
 }

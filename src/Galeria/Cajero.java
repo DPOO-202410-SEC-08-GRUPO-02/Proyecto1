@@ -12,5 +12,16 @@ public class Cajero extends Empleado{
 		this.Numero=Numero;
 		this.AccesoGaleria=AccesoGaleria;
 	}
-
+	
+	public void RealizarPago() {
+		/* Descuenta el dinero de el dinero actual del comprador pero esto va de metodo de pago en metodo de pago*/
+	}
+	
+	public void VerificarSaldo() {
+		/*Verifica si el saldo del comprador es suficiente para comprar la obra*/
+	}
+	
+	public void VerificarLimite() {
+		/*Verifica si el limite del comprador es suficiente para comprar la obra*/
+	}
 }

@@ -28,4 +28,12 @@ public class Video extends Pieza{
 			this.Electricidad=Electricidad;
 		}
 
+	public String getDuracion() {
+		return Duracion;
+	}
+
+	public Boolean getElectricidad() {
+		return Electricidad;
+	}
+
 }
