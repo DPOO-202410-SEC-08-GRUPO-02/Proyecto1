@@ -33,6 +33,8 @@ public class Galeria {
 
 		/*AcabarEsto=False;
 		if (AcabarEsto==True) {
-			Hay que seguir trabajando pq esta largo*/
+			Hay que seguir trabajando pq esta largo
+			Pero mañana madrugo :(
+			*/
 	}
 }
