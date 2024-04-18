@@ -2,34 +2,36 @@ package Galeria;
 
 public class Operador extends Empleado {
 
-	public int TurnoAnterior;
+	private int turnoAnterior= 0;
 	
 	public Operador(String Login, String Contraseña,String ID,String Nombre,String Correo,int Numero, Boolean AccesoGaleria) {
 		super(Login,Contraseña,ID,Nombre,Correo, Numero,AccesoGaleria);
-		this.Login=Login;
-		this.Contraseña=Contraseña;
-		this.ID=ID;
-		this.Nombre=Nombre;
-		this.Correo=Correo;
-		this.Numero=Numero;
-		this.AccesoGaleria=AccesoGaleria;
+		this.login=Login;
+		this.contraseña=Contraseña;
+		this.iD=ID;
+		this.nombre=Nombre;
+		this.correo=Correo;
+		this.numero=Numero;
+		this.accesoGaleria=AccesoGaleria;
 	}
 
 	public int getTurnoAnterior() {
-		return TurnoAnterior;
+		return turnoAnterior;
 	}
 	
-	public void GenerarTurno() {
+	public int generarTurno(int turnoAnterior) {
 		/*Genera otro turno (o inicia la subasta).
-		 * Los turnos se miden por el input del usuario.
-		 */
+		 * Los turnos se miden por el input del usuario.*/
+		turnoAnterior = turnoAnterior+1;
+		return turnoAnterior;
 	}
 	
-	public void ElegirGanador() {
+	public Oferta elegirGanador(int turnoAnterior) {
 		/*Decide quien fue el ganador por el ultimo turno y verifica si el ganador si se puede permitir comprar la pieza (con el saldo maximo y dinero actual)*/
+		return null;
 	}
 	
-	public void AgregarOferta() {
+	public void agregarOferta(Oferta oferta) {
 		/* No se (┬┬﹏┬┬), Majo ayudaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 		 * aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 		 * aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa

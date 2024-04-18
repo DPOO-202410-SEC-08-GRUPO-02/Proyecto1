@@ -1,21 +1,21 @@
 package Galeria;
 
 public class Cliente extends Usuario {
-	protected Boolean Verificado;
+	protected Boolean verificado;
 	
 	public Cliente(String Login, String Contraseña,String ID,String Nombre,String Correo,int Numero, Boolean Verificado) {
 		super(Login,Contraseña,ID,Nombre,Correo, Numero);
-		this.Login=Login;
-		this.Contraseña=Contraseña;
-		this.ID=ID;
-		this.Nombre=Nombre;
-		this.Correo=Correo;
-		this.Numero=Numero;
-		this.Verificado=Verificado;
+		this.login=Login;
+		this.contraseña=Contraseña;
+		this.iD=ID;
+		this.nombre=Nombre;
+		this.correo=Correo;
+		this.numero=Numero;
+		this.verificado=Verificado;
 	}
 
 	public Boolean getVerificado() {
-		return Verificado;
+		return verificado;
 	}
 
 }

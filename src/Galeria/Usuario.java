@@ -1,44 +1,44 @@
 package Galeria;
 
 public class Usuario {
-			protected String Login;
-			protected String Contraseña;
-			protected String ID;
-			protected String Nombre;
-			protected String Correo;
-			protected int Numero;
+			protected String login;
+			protected String contraseña;
+			protected String iD;
+			protected String nombre;
+			protected String correo;
+			protected int numero;
 			
 	public Usuario(String Login, String Contraseña,String ID,String Nombre,String Correo,int Numero) {
-				this.Login=Login;
-				this.Contraseña=Contraseña;
-				this.ID=ID;
-				this.Nombre=Nombre;
-				this.Correo=Correo;
-				this.Numero=Numero;
+				this.login=Login;
+				this.contraseña=Contraseña;
+				this.iD=ID;
+				this.nombre=Nombre;
+				this.correo=Correo;
+				this.numero=Numero;
 			}
 
 	public String getLogin() {
-		return Login;
+		return login;
 	}
 
 	public String getContraseña() {
-		return Contraseña;
+		return contraseña;
 	}
 
 	public String getID() {
-		return ID;
+		return iD;
 	}
 
 	public String getNombre() {
-		return Nombre;
+		return nombre;
 	}
 
 	public String getCorreo() {
-		return Correo;
+		return correo;
 	}
 
 	public int getNumero() {
-		return Numero;
+		return numero;
 	}
 	
 }

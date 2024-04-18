@@ -1,40 +1,38 @@
 package Galeria;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 
 public class Comprador extends Cliente{
-	protected  double DineroActual;
-	protected double LimiteCompras;
-	
-	public HashSet<Pieza> InfoCompras= new HashSet<Pieza>();
-	public Propietario Propietario;
+	private  double dineroActual;
+	private double limiteCompras;
+	private Map<String,Pieza> infoCompras= new HashMap<String,Pieza>();
+	private Propietario Propietario;
 	
 	public Comprador (String Login, String Contraseña,String ID,String Nombre,String Correo,int Numero, Boolean Verificado, List<String> Estadopiezas,double DineroActual, double LimiteCompras ) {
 		super(Login,Contraseña,ID,Nombre,Correo, Numero,Verificado);
-		this.Login=Login;
-		this.Contraseña=Contraseña;
-		this.ID=ID;
-		this.Nombre=Nombre;
-		this.Correo=Correo;
-		this.Numero=Numero;
-		
-		this.Verificado=Verificado;
-		
-		
-		this.DineroActual=DineroActual;
-		this.LimiteCompras=LimiteCompras;
+		this.login=Login;
+		this.contraseña=Contraseña;
+		this.iD=ID;
+		this.nombre=Nombre;
+		this.correo=Correo;
+		this.numero=Numero;
+		this.verificado=Verificado;
+		this.dineroActual=DineroActual;
+		this.limiteCompras=LimiteCompras;
 	}
 
 	public double getDineroActual() {
-		return DineroActual;
+		return dineroActual;
 	}
 
 	public double getLimiteCompras() {
-		return LimiteCompras;
+		return limiteCompras;
 	}
 	
-	public void GenerarOfertasSubasta() {
+	public void generarOfertasSubasta(Pieza pieza, double valor) {
 		/* En estado de oferta el usuario sera capaz de hacer una oferta.
 		 * Posiles formas (pueden ser ambas):
 		 * 1. El usuario generara una oferta y si es menor que el valor minimo entonces el programa generara un numero aleatorio entre la oferta de usuario y el valor minimo (pero nunca igual a el valor minimo).
@@ -42,19 +40,19 @@ public class Comprador extends Cliente{
 		 */
 	}
 	
-	public void ComprarPieza() {
+	public void comprarPieza(Pieza pieza) {
 		/* El usuario podra elegir una pieza en el Catalogo para comprar*/
 	}
 	
-	public void EditarLimite() {
+	public void editarLimite(double nuevoLimite) {
 		/* No se le presentara al comprador para que la use. el administrador es el que debe usarla.*/ 
 	}
 	
-	public void AgregarPieza() {
+	public void agregarPieza(Pieza pieza) {
 		/* No se le presentara al comprador para que la use. el administrador es el que debe usarla.*/
 	}
 	
-	public void EditarDineroActual() {
+	public void editarDineroActual(double nuevoValor) {
 		/* No se le presentara al comprador para que la use. el cajero es el que debe usarla (para descontar el dinero en una compra por ejemplo).*/
 	}
 }

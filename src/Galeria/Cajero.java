@@ -4,24 +4,26 @@ public class Cajero extends Empleado{
 	
 	public Cajero(String Login, String Contraseña,String ID,String Nombre,String Correo,int Numero, Boolean AccesoGaleria) {
 		super(Login,Contraseña,ID,Nombre,Correo, Numero,AccesoGaleria);
-		this.Login=Login;
-		this.Contraseña=Contraseña;
-		this.ID=ID;
-		this.Nombre=Nombre;
-		this.Correo=Correo;
-		this.Numero=Numero;
-		this.AccesoGaleria=AccesoGaleria;
+		this.login=Login;
+		this.contraseña=Contraseña;
+		this.iD=ID;
+		this.nombre=Nombre;
+		this.correo=Correo;
+		this.numero=Numero;
+		this.accesoGaleria=AccesoGaleria;
 	}
 	
-	public void RealizarPago() {
+	public void realizarPago(double valorCompra, Comprador comprador, String metodoPago) {
 		/* Descuenta el dinero de el dinero actual del comprador pero esto va de metodo de pago en metodo de pago*/
 	}
 	
-	public void VerificarSaldo() {
+	public boolean verificarSaldo(double valorCompra, Comprador comprador) {
 		/*Verifica si el saldo del comprador es suficiente para comprar la obra*/
+		return false;
 	}
 	
-	public void VerificarLimite() {
+	public boolean verificarLimite(double valorCompra, Comprador comprador) {
 		/*Verifica si el limite del comprador es suficiente para comprar la obra*/
+		return false;
 	}
 }

@@ -1,12 +1,18 @@
 package Galeria;
 
 public class Oferta {
-	protected int turno;
-	protected double valorOferta;
 	
-	public Comprador Comprador;
-	public Pieza Pieza;
+	private int turno;
+	private double valorOferta;
+	private Comprador comprador;
+	private Pieza pieza;
 	
+	public Oferta(int turno, double valorOferta, Comprador comprador, Pieza pieza) {
+		this.turno = turno;
+		this.valorOferta = valorOferta;
+		this.comprador = comprador;
+		this.pieza = pieza;
+	}
 	public int getTurno() {
 		return turno;
 	}
@@ -14,11 +20,13 @@ public class Oferta {
 		return valorOferta;
 	}
 	
-	public void getComprador() {
+	public Comprador getComprador() {
 		/*Obtiene la informacion del comprador necesaria para realizar la subasta*/
+		return comprador;
 	}
 	
-	public void getPieza() {
+	public Pieza getPieza() {
 		/*Obtiene la informacion de la pieza necesaria para realizar la subasta*/
+		return pieza;
 	}
 }

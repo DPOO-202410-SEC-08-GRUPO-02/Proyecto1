@@ -5,30 +5,37 @@ import java.util.Map;
 
 public class Galeria {
 	
-	private Map<String,Pieza> Inventario= new HashMap<String,Pieza>();
-	private Map<String,Pieza> Subasta= new HashMap<String,Pieza>();
-	private Map<String,Usuario> Usuarios= new HashMap<String,Usuario>();
+	private static Map<String,Pieza> inventario= new HashMap<String,Pieza>();
+	private static Map<String,Pieza> subasta= new HashMap<String,Pieza>();
+	private Map<String,Usuario> usuarios= new HashMap<String,Usuario>();
 	/*Subasta sera mas pequeña que Inventario porque solo estaran los elementos que tengan subasta en True*/
 	
-	public Pieza getPiezaInventario(String idPieza) {
+	public static Pieza getPiezaInventario(String idPieza) {
 		/*Obtiene la informacion de una pieza en el inventario*/
-		return null;
+		Pieza pieza= inventario.get(idPieza);
+		return pieza;
 	}
 	
-	public Usuario getUsuario(String idUsuario) {
+	public static Pieza getPiezaSubasta(String idPieza) {
+		/*Obtiene la informacion de una pieza en el inventario*/
+		Pieza pieza= subasta.get(idPieza);
+		return pieza;
+	}
+	
+	public static Usuario getUsuario(String idUsuario) {
 		/*Obtiene la informacion de la informacion del Usuario*/
 		return null;
 	}
 	
-	public void AgregarPiezaSubasta(Pieza pieza) {
+	public void agregarPiezaSubasta(Pieza pieza) {
 		/*Agrega una pieza al hash map de Subastas*/
 	}
 	
-	public void AgregarPiezaInventario(Pieza pieza) {
+	public void agregarPiezaInventario(Pieza pieza) {
 		/*Agrega una pieza al hash map de Inventario*/
 	}
 	
-	public void AgregarUsuario(Usuario usuario) {
+	public void agregarUsuario(Usuario usuario) {
 		/*Agrega un usuario al hash map de Usuario*/
 	}
 }

@@ -1,115 +1,115 @@
 package Galeria;
 
 public class Pieza {
-	protected String ID;
-	protected String Tecnica;
-	protected String Autor;
-	protected String Titulo;
-	protected int Anio;
-	protected String Lugar;
-	protected String Estado;
-	protected Boolean Disponibilidad;
-	protected String FechaLimite;
-	protected double Valor;
-	protected Boolean Consignacion;
-	protected Boolean Devolucion;
-	protected Boolean Subasta;
-	protected Double ValorMinimoS;
-	protected Double ValorInicialS;
+	protected String iD;
+	protected String tecnica;
+	protected String autor;
+	protected String titulo;
+	protected int anio;
+	protected String lugar;
+	protected String estado;
+	protected Boolean disponibilidad;
+	protected String fechaLimite;
+	protected double valor;
+	protected Boolean consignacion;
+	protected Boolean devolucion;
+	protected Boolean subasta;
+	protected Double valorMinimoS;
+	protected Double valorInicialS;
 	
 	
 public Pieza(String ID, String Tecnica,String Autor,String Titulo,int Anio,String Lugar, String Estado, Boolean Disponibilidad, 
 		String FechaLimite, double Valor, Boolean Consignacion, Boolean Devolucion, Boolean Subasta, Double ValorMinimoS, Double ValorInicialS) {
-		this.ID=ID;
-		this.Tecnica=Tecnica;
-		this.Autor=Autor;
-		this.Titulo=Titulo;
-		this.Anio=Anio;
-		this.Lugar=Lugar;
-		this.Estado=Estado;
-		this.Disponibilidad=Disponibilidad;
-		this.FechaLimite=FechaLimite;
-		this.Valor=Valor;
-		this.Consignacion=Consignacion;
-		this.Devolucion=Devolucion;
-		this.Subasta=Subasta;
-		this.ValorMinimoS=ValorMinimoS;
-		this.ValorInicialS=ValorInicialS;
+		this.iD=ID;
+		this.tecnica=Tecnica;
+		this.autor=Autor;
+		this.titulo=Titulo;
+		this.anio=Anio;
+		this.lugar=Lugar;
+		this.estado=Estado;
+		this.disponibilidad=Disponibilidad;
+		this.fechaLimite=FechaLimite;
+		this.valor=Valor;
+		this.consignacion=Consignacion;
+		this.devolucion=Devolucion;
+		this.subasta=Subasta;
+		this.valorMinimoS=ValorMinimoS;
+		this.valorInicialS=ValorInicialS;
 	}
 
 
 public String getID() {
-	return ID;
+	return iD;
 }
 
 
 public String getTecnica() {
-	return Tecnica;
+	return tecnica;
 }
 
 
 public String getAutor() {
-	return Autor;
+	return autor;
 }
 
 
 public String getTitulo() {
-	return Titulo;
+	return titulo;
 }
 
 
 public int getAnio() {
-	return Anio;
+	return anio;
 }
 
 
 public String getLugar() {
-	return Lugar;
+	return lugar;
 }
 
 
 public String getEstado() {
-	return Estado;
+	return estado;
 }
 
 
 public Boolean getDisponibilidad() {
-	return Disponibilidad;
+	return disponibilidad;
 }
 
 
 public String getFechaLimite() {
-	return FechaLimite;
+	return fechaLimite;
 }
 
 
 public double getValor() {
-	return Valor;
+	return valor;
 }
 
 
 public Boolean getConsignacion() {
-	return Consignacion;
+	return consignacion;
 }
 
 
 public Boolean getDevolucion() {
-	return Devolucion;
+	return devolucion;
 }
 
 
 public Boolean getSubasta() {
-	return Subasta;
+	return subasta;
 }
 
 
 public Double getValorMinimoS() {
-	return ValorMinimoS;
+	return valorMinimoS;
 }
 
 
 public Double getValorInicialS() {
-	return ValorInicialS;
+	return valorInicialS;
 }
 
 }

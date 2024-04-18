@@ -4,40 +4,43 @@ public class Administrador extends Empleado{
 	
 	public Administrador(String Login, String Contraseña,String ID,String Nombre,String Correo,int Numero, Boolean AccesoGaleria) {
 		super(Login,Contraseña,ID,Nombre,Correo, Numero,AccesoGaleria);
-		this.Login=Login;
-		this.Contraseña=Contraseña;
-		this.ID=ID;
-		this.Nombre=Nombre;
-		this.Correo=Correo;
-		this.Numero=Numero;
-		this.AccesoGaleria=AccesoGaleria;
+		this.login=Login;
+		this.contraseña=Contraseña;
+		this.iD=ID;
+		this.nombre=Nombre;
+		this.correo=Correo;
+		this.numero=Numero;
+		this.accesoGaleria=AccesoGaleria;
 	}
 	
-	public void VerificarUsuario () {
+	public boolean verificarUsuario (Usuario usuario) {
 		/* Verifica un usuario para que sea comprador o propietario*/
+		return false;
 	}
 	
-	public void VerificarCompra () {
+	public boolean verificarCompra (Comprador comprador, Pieza pieza, double valor) {
 		/* Verifica que todo este en orden para realizar una compra si es asi entonces la aprueba*/
+		return false;
 	}
 	
-	public void VerificarDevolucion () {
+	public void verificarDevolucion (Usuario usuario, Pieza pieza) {
 		/* Verifica que todo este en orden para realizar una devolucion si es asi entonces la aprueba*/
 	}
 	
-	public void CambiarEstadoObra () {
+	public void cambiarEstadoObra (Pieza pieza) {
 		/* Cambia el estado y disponibilidad de una obra*/
 	}
 	
-	public void VerificarLimite () {
+	public boolean verificarLimite (Comprador comprador, double valor) {
 		/* Verifica que todo este en orden segun el limite del comprador y el dinero actual*/
+		return false;
 	}
 	
-	public void AgregarPieza () {
+	public void agregarPieza (Comprador comprador, Pieza pieza) {
 		/* Agrega una pieza a el inventario del comprador y hace todos los procesos necesarios para sacarlo del inventario*/
 	}
 	
-	public void IngresarPieza () {
+	public void ingresarPieza (Pieza pieza) {
 		/* Ingresa una pieza totalmente nueva al inventario de la galeria*/
 	}
 }

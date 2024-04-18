@@ -1,43 +1,43 @@
 package Galeria;
 
 public class Fotografia extends Pieza{
-	protected double Alto;
-	protected double Ancho;
-	protected Boolean aColor;
-	protected Boolean Instalacion;
+	private double alto;
+	private double ancho;
+	private Boolean aColor;
+	private Boolean instalacion;
 	
 	public Fotografia(String ID, String Tecnica,String Autor,String Titulo,int Anio,String Lugar, String Estado, Boolean Disponibilidad, 
 			String FechaLimite, double Valor, Boolean Consignacion, Boolean Devolucion, Boolean Subasta, Double ValorMinimoS, Double ValorInicialS,
 			double Alto, double Ancho, Boolean aColor,Boolean Instalacion) {
 			super(ID,Tecnica,Autor,Titulo,Anio,Lugar,Estado,Disponibilidad,FechaLimite,Valor,Consignacion,Devolucion,Subasta,ValorMinimoS,ValorInicialS);
-			this.ID=ID;
-			this.Tecnica=Tecnica;
-			this.Autor=Autor;
-			this.Titulo=Titulo;
-			this.Anio=Anio;
-			this.Lugar=Lugar;
-			this.Estado=Estado;
-			this.Disponibilidad=Disponibilidad;
-			this.FechaLimite=FechaLimite;
-			this.Valor=Valor;
-			this.Consignacion=Consignacion;
-			this.Devolucion=Devolucion;
-			this.Subasta=Subasta;
-			this.ValorMinimoS=ValorMinimoS;
-			this.ValorInicialS=ValorInicialS;
+			this.iD=ID;
+			this.tecnica=Tecnica;
+			this.autor=Autor;
+			this.titulo=Titulo;
+			this.anio=Anio;
+			this.lugar=Lugar;
+			this.estado=Estado;
+			this.disponibilidad=Disponibilidad;
+			this.fechaLimite=FechaLimite;
+			this.valor=Valor;
+			this.consignacion=Consignacion;
+			this.devolucion=Devolucion;
+			this.subasta=Subasta;
+			this.valorMinimoS=ValorMinimoS;
+			this.valorInicialS=ValorInicialS;
 			
-			this.Alto=Alto;
-			this.Ancho=Ancho;
+			this.alto=Alto;
+			this.ancho=Ancho;
 			this.aColor=aColor;
-			this.Instalacion=Instalacion;
+			this.instalacion=Instalacion;
 		}
 
 	public double getAlto() {
-		return Alto;
+		return alto;
 	}
 
 	public double getAncho() {
-		return Ancho;
+		return ancho;
 	}
 
 	public Boolean getaColor() {
@@ -45,7 +45,7 @@ public class Fotografia extends Pieza{
 	}
 
 	public Boolean getInstalacion() {
-		return Instalacion;
+		return instalacion;
 	}
 
 }

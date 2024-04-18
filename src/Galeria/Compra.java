@@ -2,22 +2,40 @@ package Galeria;
 
 public class Compra {
 	
-	protected double ValorCompra;
+	private double valorCompra;
+	private Pieza pieza;
+	private Comprador comprador;
 	
-	public Pieza Pieza;
-	public Comprador Comprador;
+	public Compra(Pieza pieza, Comprador comprador, double valorCompra)
+	{
+		this.pieza = pieza;
+		this.comprador = comprador;
+		this.valorCompra = valorCompra;
+	}
 	
-	public void PasarCaja() {
+	public double getValorCompra() {
+		return valorCompra;
+	}
+
+	public Pieza getPieza() {
+		return pieza;
+	}
+
+	public Comprador getComprador() {
+		return comprador;
+	}
+
+	public void pasarCaja(Comprador comprador) {
 		/*Se llama pasar a Caja para diferenciar que es proceso inicial de la compra, osea consultar todos 
 		 * los datos necesarios y mandar a verificarlos al cajero o al administarador y dependiendo del caso pasara a compra rechazada o confirmar compra
 		 */
 	}
 	
-	public void ConfirmarCompra() {
+	public void confirmarCompra(Comprador comprador, double valorCompra) {
 		/* Hace todo el proceso necesario para realizar la compra, entregar la pieza al usuario, entre otros procesos*/
 	}
 	
-	public void CompraRechazada () {
+	public void compraRechazada (Comprador comprador) {
 		/*Cuando algo en la verificacion de pasar a caja sale mal entonces devolvera todo a como estaba antes 
 		 * de que el usuario eligiera una pieza para la compra y intenta resolvr el problema por el cual el comprador no es apto para comprar la pieza
 		 */
