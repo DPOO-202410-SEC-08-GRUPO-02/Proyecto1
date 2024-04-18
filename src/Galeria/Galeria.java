@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class Galeria {
 	
-	private Map<String,Pieza> pedro= new HashMap<String,Pieza>();
+	private Map<String,Pieza> Inventario= new HashMap<String,Pieza>();
 	private Map<String,Pieza> Subasta= new HashMap<String,Pieza>();
 	private Map<String,Usuario> Usuarios= new HashMap<String,Usuario>();
 	/*Subasta sera mas pequeña que Inventario porque solo estaran los elementos que tengan subasta en True*/
@@ -30,6 +30,9 @@ public class Galeria {
 	
 	public void AgregarUsuario(Usuario usuario) {
 		/*Agrega un usuario al hash map de Usuario*/
-		/*x*/
+
+		/*AcabarEsto=False;
+		if (AcabarEsto==True) {
+			Vamos a dormir porque me muero de sueño*/
 	}
 }
