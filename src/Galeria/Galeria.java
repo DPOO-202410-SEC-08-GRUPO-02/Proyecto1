@@ -33,6 +33,6 @@ public class Galeria {
 
 		/*AcabarEsto=False;
 		if (AcabarEsto==True) {
-			Vamos a dormir porque me muero de sueño*/
+			Hay que seguir trabajando pq esta largo*/
 	}
 }
