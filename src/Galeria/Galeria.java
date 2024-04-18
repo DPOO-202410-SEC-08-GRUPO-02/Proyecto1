@@ -30,5 +30,6 @@ public class Galeria {
 	
 	public void AgregarUsuario(Usuario usuario) {
 		/*Agrega un usuario al hash map de Usuario*/
+		/*Prueba 2*/
 	}
-
+}
