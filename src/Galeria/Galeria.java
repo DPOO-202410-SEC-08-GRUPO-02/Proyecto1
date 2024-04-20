@@ -5,20 +5,20 @@ import java.util.Map;
 
 public class Galeria {
 	
-	private static Map<String,Pieza> inventario= new HashMap<String,Pieza>();
-	private static Map<String,Pieza> subasta= new HashMap<String,Pieza>();
-	private Map<String,Usuario> usuarios= new HashMap<String,Usuario>();
+	private static Map<String,Pieza> inventarioMap= new HashMap<String,Pieza>();
+	private static Map<String,Pieza> subastaMap= new HashMap<String,Pieza>();
+	private Map<String,Usuario> usuariosMap= new HashMap<String,Usuario>();
 	/*Subasta sera mas pequeña que Inventario porque solo estaran los elementos que tengan subasta en True*/
 	
 	public static Pieza getPiezaInventario(String idPieza) {
 		/*Obtiene la informacion de una pieza en el inventario*/
-		Pieza pieza= inventario.get(idPieza);
+		Pieza pieza= inventarioMap.get(idPieza);
 		return pieza;
 	}
 	
 	public static Pieza getPiezaSubasta(String idPieza) {
 		/*Obtiene la informacion de una pieza en el inventario*/
-		Pieza pieza= subasta.get(idPieza);
+		Pieza pieza= subastaMap.get(idPieza);
 		return pieza;
 	}
 	
@@ -28,15 +28,15 @@ public class Galeria {
 	}
 	
 	public static Map<String, Pieza> getInventario() {
-		return inventario;
+		return inventarioMap;
 	}
 
 	public static Map<String, Pieza> getSubasta() {
-		return subasta;
+		return subastaMap;
 	}
 
 	public Map<String, Usuario> getUsuarios() {
-		return usuarios;
+		return usuariosMap;
 	}
 
 	public void agregarPiezaSubasta(Pieza pieza) {

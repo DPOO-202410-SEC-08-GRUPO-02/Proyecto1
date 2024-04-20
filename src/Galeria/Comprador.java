@@ -39,8 +39,10 @@ public class Comprador extends Cliente{
 		/* En estado de oferta el usuario sera capaz de hacer una oferta.
 		 * Posiles formas (pueden ser ambas):
 		 * 1. El usuario generara una oferta y si es menor que el valor minimo entonces el programa generara un numero aleatorio entre la oferta de usuario y el valor minimo (pero nunca igual a el valor minimo).
-		 * 2. Para dar mas sensacion de estar en una subasta que el usuario deba hacer minimo 3 ofertas antes de que se cierre esta.
+		 * 2. Para dar mas sensacion de estar en una subasta, el usuario debe realizar minimo 3 ofertas antes de que se cierre la subasta.
 		 */
+		
+		Subasta.generarOferta(this, pieza, valor);
 	}
 	
 	public void comprarPieza(Pieza pieza) {

@@ -2,18 +2,18 @@ package Galeria;
 
 public class Oferta {
 	
-	private int turno;
+	private String turno;
 	private double valorOferta;
 	private Comprador comprador;
 	private Pieza pieza;
 	
-	public Oferta(int turno, double valorOferta, Comprador comprador, Pieza pieza) {
+	public Oferta(String turno, double valorOferta, Comprador comprador, Pieza pieza) {
 		this.turno = turno;
 		this.valorOferta = valorOferta;
 		this.comprador = comprador;
 		this.pieza = pieza;
 	}
-	public int getTurno() {
+	public String getTurno() {
 		return turno;
 	}
 	public double getValorOferta() {
