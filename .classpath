@@ -6,5 +6,31 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="/Users/mariajosebermudezgomez/Desktop/JSON-java-master/src/main/java/org/json/CDL.java"/>
+	<classpathentry kind="lib" path="/Users/mariajosebermudezgomez/Desktop/JSON-java-master/src/main/java/org/json/Cookie.java"/>
+	<classpathentry kind="lib" path="/Users/mariajosebermudezgomez/Desktop/JSON-java-master/src/main/java/org/json/CookieList.java"/>
+	<classpathentry kind="lib" path="/Users/mariajosebermudezgomez/Desktop/JSON-java-master/src/main/java/org/json/HTTP.java"/>
+	<classpathentry kind="lib" path="/Users/mariajosebermudezgomez/Desktop/JSON-java-master/src/main/java/org/json/HTTPTokener.java"/>
+	<classpathentry kind="lib" path="/Users/mariajosebermudezgomez/Desktop/JSON-java-master/src/main/java/org/json/JSONArray.java"/>
+	<classpathentry kind="lib" path="/Users/mariajosebermudezgomez/Desktop/JSON-java-master/src/main/java/org/json/JSONException.java"/>
+	<classpathentry kind="lib" path="/Users/mariajosebermudezgomez/Desktop/JSON-java-master/src/main/java/org/json/JSONML.java"/>
+	<classpathentry kind="lib" path="/Users/mariajosebermudezgomez/Desktop/JSON-java-master/src/main/java/org/json/JSONMLParserConfiguration.java"/>
+	<classpathentry kind="lib" path="/Users/mariajosebermudezgomez/Desktop/JSON-java-master/src/main/java/org/json/JSONObject.java"/>
+	<classpathentry kind="lib" path="/Users/mariajosebermudezgomez/Desktop/JSON-java-master/src/main/java/org/json/JSONParserConfiguration.java"/>
+	<classpathentry kind="lib" path="/Users/mariajosebermudezgomez/Desktop/JSON-java-master/src/main/java/org/json/JSONPointer.java"/>
+	<classpathentry kind="lib" path="/Users/mariajosebermudezgomez/Desktop/JSON-java-master/src/main/java/org/json/JSONPointerException.java"/>
+	<classpathentry kind="lib" path="/Users/mariajosebermudezgomez/Desktop/JSON-java-master/src/main/java/org/json/JSONPropertyIgnore.java"/>
+	<classpathentry kind="lib" path="/Users/mariajosebermudezgomez/Desktop/JSON-java-master/src/main/java/org/json/JSONPropertyName.java"/>
+	<classpathentry kind="lib" path="/Users/mariajosebermudezgomez/Desktop/JSON-java-master/src/main/java/org/json/JSONString.java"/>
+	<classpathentry kind="lib" path="/Users/mariajosebermudezgomez/Desktop/JSON-java-master/src/main/java/org/json/JSONStringer.java"/>
+	<classpathentry kind="lib" path="/Users/mariajosebermudezgomez/Desktop/JSON-java-master/src/main/java/org/json/JSONTokener.java"/>
+	<classpathentry kind="lib" path="/Users/mariajosebermudezgomez/Desktop/JSON-java-master/src/main/java/org/json/JSONWriter.java"/>
+	<classpathentry kind="lib" path="/Users/mariajosebermudezgomez/Desktop/JSON-java-master/src/main/java/org/json/ParserConfiguration.java"/>
+	<classpathentry kind="lib" path="/Users/mariajosebermudezgomez/Desktop/JSON-java-master/src/main/java/org/json/Property.java"/>
+	<classpathentry kind="lib" path="/Users/mariajosebermudezgomez/Desktop/JSON-java-master/src/main/java/org/json/StringBuilderWriter.java"/>
+	<classpathentry kind="lib" path="/Users/mariajosebermudezgomez/Desktop/JSON-java-master/src/main/java/org/json/XML.java"/>
+	<classpathentry kind="lib" path="/Users/mariajosebermudezgomez/Desktop/JSON-java-master/src/main/java/org/json/XMLParserConfiguration.java"/>
+	<classpathentry kind="lib" path="/Users/mariajosebermudezgomez/Desktop/JSON-java-master/src/main/java/org/json/XMLTokener.java"/>
+	<classpathentry kind="lib" path="/Users/mariajosebermudezgomez/Desktop/JSON-java-master/src/main/java/org/json/XMLXsiTypeConverter.java"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

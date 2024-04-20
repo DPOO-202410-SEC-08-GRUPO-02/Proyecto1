@@ -1,7 +1,6 @@
 package Galeria;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
@@ -32,6 +31,10 @@ public class Comprador extends Cliente{
 		return limiteCompras;
 	}
 	
+	public Map<String, Pieza> getInfoCompras() {
+		return infoCompras;
+	}
+
 	public void generarOfertasSubasta(Pieza pieza, double valor) {
 		/* En estado de oferta el usuario sera capaz de hacer una oferta.
 		 * Posiles formas (pueden ser ambas):

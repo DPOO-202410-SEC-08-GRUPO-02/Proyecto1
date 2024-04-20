@@ -27,6 +27,18 @@ public class Galeria {
 		return null;
 	}
 	
+	public static Map<String, Pieza> getInventario() {
+		return inventario;
+	}
+
+	public static Map<String, Pieza> getSubasta() {
+		return subasta;
+	}
+
+	public Map<String, Usuario> getUsuarios() {
+		return usuarios;
+	}
+
 	public void agregarPiezaSubasta(Pieza pieza) {
 		/*Agrega una pieza al hash map de Subastas*/
 	}
