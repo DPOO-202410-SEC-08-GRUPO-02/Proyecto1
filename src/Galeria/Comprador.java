@@ -44,6 +44,7 @@ public class Comprador extends Cliente{
 		
 		String mensajeOferta = Subasta.generarOferta(this, pieza, valor);
 		return mensajeOferta;
+		
 	}
 	
 	public void comprarPieza(Pieza pieza) {
@@ -61,4 +62,17 @@ public class Comprador extends Cliente{
 	public void editarDineroActual(double nuevoValor) {
 		/* No se le presentara al comprador para que la use. el cajero es el que debe usarla (para descontar el dinero en una compra por ejemplo).*/
 	}
+
+	public void setDineroActual(double dineroActual) {
+		this.dineroActual = dineroActual;
+	}
+
+	public void setLimiteCompras(double limiteCompras) {
+		this.limiteCompras = limiteCompras;
+	}
+
+	public void setInfoCompras(Map<String, Pieza> infoCompras) {
+		this.infoCompras = infoCompras;
+	}
+	
 }

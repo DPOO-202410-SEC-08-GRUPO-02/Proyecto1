@@ -25,7 +25,7 @@ public class Compra {
 		return comprador;
 	}
 
-	public void pasarCaja(Comprador comprador, Pieza pieza) {
+	public void pasarCaja(Comprador comprador, Pieza pieza, String tipoCompra) {
 		/*Se llama pasar a Caja para diferenciar que es proceso inicial de la compra, osea consultar todos 
 		 * los datos necesarios y mandar a verificarlos al cajero o al administarador y dependiendo del caso pasara a compra rechazada o confirmar compra
 		 */
@@ -33,7 +33,21 @@ public class Compra {
 		String llave = "disponibilidad";
 		Administrador.cambiarEstadoObra(pieza, llave, "false");
 		
+		double valor = 0.0;
 		
+		if (tipoCompra == "subasta")
+		{
+			Oferta ganador = Subasta.getGanador();
+			valor = ganador.getValorOferta();
+		}
+		else
+		{
+			valor = pieza.getValor();
+		}
+		
+		boolean compraVerificada = Administrador.verificarCompra(comprador, pieza, valor);
+//		Keviiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiin
+//		Con este boolean se sabe si fue exitosa o no
 	}
 	
 	public void confirmarCompra(Comprador comprador, double valorCompra) {

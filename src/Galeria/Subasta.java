@@ -4,7 +4,7 @@ import java.util.Map;
 
 public class Subasta {
 	
-	private Compra compra; 
+	private static Compra compra; 
 	private static Oferta ganador;
 	
 	public static String generarOferta(Comprador comprador, Pieza pieza, double valor) 
@@ -18,7 +18,7 @@ public class Subasta {
 		
 		/*Luego te ayudo q tengo sueño*/
 		
-		boolean verificado = comprador.getVerificado();
+		boolean verificado = Subasta.verificarUsuario(comprador);
 		
 		if (verificado == true)
 		{
@@ -41,12 +41,14 @@ public class Subasta {
 			return "Comprador no verificado";
 	}
 	
-	public void verificarUsuario(Comprador comprador) 
+	public static boolean verificarUsuario(Comprador comprador) 
 	{
 		/* En caso de que el usuario no este verificado al realizar una subasta hace el proceso para verificarlo y dejarlo participar en la subasta*/
+		boolean verificado = Administrador.verificarUsuario(comprador);
+		return verificado;
 	}
 
-	public Map<String, Pieza> getSubasta() 
+	public static Map<String, Pieza> getSubasta() 
 	{
 		Map<String, Pieza> subasta= Galeria.getSubasta();
 		return subasta;
@@ -57,14 +59,18 @@ public class Subasta {
 		return -0.0;
 	}
 	
-	public Oferta getGanador()
+	public static Oferta getGanador()
 	{
 		return ganador;
 	}
 
-	public Compra getCompra() 
+	public static Compra getCompra() 
 	{
 		return compra;
+	}
+	public static void agregarPieza(Pieza pieza) 
+	{
+		Galeria.agregarPiezaSubasta(pieza);
 	}
 	
 	

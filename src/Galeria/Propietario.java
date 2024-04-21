@@ -32,8 +32,8 @@ public class Propietario extends Cliente{
 		 /* Da una pieza a la Galeria con el atributo consignacion TRUE y una fecha limite*/
 	 }
 	 
-	 public List<Pieza> consultarHistorial() {
+	 public Map<String,Pieza> consultarHistorial() {
 		 /* Devuelve una lista con todas las piezas que fueron del Usuario y estan en consignacion o ya estan vendidas en cada posicion*/
-		return null;
+		 return HistorialPiezas;
 	}
 }
