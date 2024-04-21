@@ -8,18 +8,18 @@ public class Pieza {
 		protected int anio;
 		protected String lugar;
 		protected String estado;
-		protected Boolean disponibilidad;
+		protected boolean disponibilidad;
 		protected String fechaLimite;
 		protected double valor;
-		protected Boolean consignacion;
-		protected Boolean devolucion;
-		protected Boolean subasta;
-		protected Double valorMinimoS;
-		protected Double valorInicialS;
+		protected boolean consignacion;
+		protected boolean devolucion;
+		protected boolean subasta;
+		protected double valorMinimoS;
+		protected double valorInicialS;
 		
 		
-	public Pieza(String ID, String Tecnica,String Autor,String Titulo,int Anio,String Lugar, String Estado, Boolean Disponibilidad, 
-			String FechaLimite, double Valor, Boolean Consignacion, Boolean Devolucion, Boolean Subasta, Double ValorMinimoS, Double ValorInicialS) {
+	public Pieza(String ID, String Tecnica,String Autor,String Titulo,int Anio,String Lugar, String Estado, boolean Disponibilidad, 
+			String FechaLimite, double Valor, boolean Consignacion, boolean Devolucion, boolean Subasta, double ValorMinimoS, double ValorInicialS) {
 			this.iD=ID;
 			this.tecnica=Tecnica;
 			this.autor=Autor;
