@@ -6,9 +6,9 @@ import java.util.Map;
 public class Operador extends Empleado {
 
 	private static int turnoAnterior= 0;
-	private static Map<String, Oferta> ofertas = new HashMap<String, Oferta>();;
+	private static Map<String, Oferta> ofertas = new HashMap<String, Oferta>();
 	
-	public Operador(String Login, String Contraseña,String ID,String Nombre,String Correo,int Numero, Boolean AccesoGaleria) {
+	public Operador(String Login, String Contraseña,String ID,String Nombre,String Correo,int Numero, boolean AccesoGaleria, int TurnoAnterior, Map<String, Oferta> Ofertas) {
 		super(Login,Contraseña,ID,Nombre,Correo, Numero,AccesoGaleria);
 		this.login=Login;
 		this.contraseña=Contraseña;
@@ -17,6 +17,8 @@ public class Operador extends Empleado {
 		this.correo=Correo;
 		this.numero=Numero;
 		this.accesoGaleria=AccesoGaleria;
+		Operador.turnoAnterior=TurnoAnterior;
+		Operador.ofertas=Ofertas;
 	}
 
 	public static int getTurnoAnterior() {

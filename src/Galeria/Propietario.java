@@ -8,10 +8,12 @@ import java.util.Map;
 public class Propietario extends Cliente{
 	
 	private  List<String> estadoPiezas= new ArrayList<String>( );
-	private Map<String,Pieza> HistorialPiezas= new HashMap<String,Pieza>();
+	private Map<String,Pieza> historialPiezas= new HashMap<String,Pieza>();
 	private Comprador comprador;
 	
-	public Propietario (String Login, String Contraseña,String ID,String Nombre,String Correo,int Numero, Boolean Verificado, List<String> EstadoPiezas) {
+	public Propietario (String Login, String Contraseña,String ID,String Nombre,String Correo,int Numero, boolean Verificado, 
+			List<String> EstadoPiezas, Map<String,Pieza> HistorialPiezas) 
+	{
 		super(Login,Contraseña,ID,Nombre,Correo, Numero,Verificado);
 		this.login=Login;
 		this.contraseña=Contraseña;
@@ -21,6 +23,7 @@ public class Propietario extends Cliente{
 		this.numero=Numero;
 		this.verificado=Verificado;
 		this.estadoPiezas=EstadoPiezas;
+		this.historialPiezas = HistorialPiezas;
 	}
 
 	public List<String> consultarEstado() {
@@ -34,6 +37,6 @@ public class Propietario extends Cliente{
 	 
 	 public Map<String,Pieza> consultarHistorial() {
 		 /* Devuelve una lista con todas las piezas que fueron del Usuario y estan en consignacion o ya estan vendidas en cada posicion*/
-		 return HistorialPiezas;
+		 return historialPiezas;
 	}
 }

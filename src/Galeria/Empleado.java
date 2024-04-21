@@ -1,7 +1,7 @@
 package Galeria;
 
 public class Empleado extends Usuario{
-	protected Boolean accesoGaleria;
+	protected boolean accesoGaleria;
 	
 	public Empleado(String Login, String Contraseña,String ID,String Nombre,String Correo,int Numero, Boolean AccesoGaleria) {
 		super(Login,Contraseña,ID,Nombre,Correo, Numero);
@@ -14,7 +14,7 @@ public class Empleado extends Usuario{
 		this.accesoGaleria=AccesoGaleria;
 	}
 
-	public Boolean getAccesoGaleria() {
+	public boolean getAccesoGaleria() {
 		return accesoGaleria;
 	}
 

@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.util.List;
+import java.util.Map;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -52,13 +53,6 @@ public class CargadorGaleria {
 				nuevaPieza = new Pintura(id, tecnica, autor, titulo, anio, lugar, estado, 
 						disponibilidad, fechaLimite,valor, consignacion, devolucion, subasta, valorMinimoS, valorInicialS,
 						alto, ancho, movimientoArtistico, instalacion);
-				
-				Galeria.agregarPiezaInventario(nuevaPieza);
-				
-				if (subasta == true)
-				{
-					Galeria.agregarPiezaSubasta(nuevaPieza);
-				}
 			
 			}
 			else if (tipo == "Escultura")
@@ -74,13 +68,6 @@ public class CargadorGaleria {
 				nuevaPieza = new Escultura (id, tecnica, autor, titulo, anio, lugar, estado, 
 						disponibilidad, fechaLimite,valor, consignacion, devolucion, subasta, valorMinimoS, valorInicialS,
 						alto, ancho, profundidad, materiales, peso, instalacion, electricidad);
-				
-				Galeria.agregarPiezaInventario(nuevaPieza);
-				
-				if (subasta == true)
-				{
-					Galeria.agregarPiezaSubasta(nuevaPieza);
-				}
 			}
 			
 			else if (tipo == "Impresion")
@@ -93,13 +80,6 @@ public class CargadorGaleria {
 				nuevaPieza = new Impresion (id, tecnica, autor, titulo, anio, lugar, estado, 
 						disponibilidad, fechaLimite,valor, consignacion, devolucion, subasta, valorMinimoS, valorInicialS,
 						alto, ancho, soporte, instalacion);
-				
-				Galeria.agregarPiezaInventario(nuevaPieza);
-				
-				if (subasta == true)
-				{
-					Galeria.agregarPiezaSubasta(nuevaPieza);
-				}
 			}
 			
 			else if (tipo == "Fotografia")
@@ -112,13 +92,6 @@ public class CargadorGaleria {
 				nuevaPieza = new Fotografia (id, tecnica, autor, titulo, anio, lugar, estado, 
 						disponibilidad, fechaLimite,valor, consignacion, devolucion, subasta, valorMinimoS, valorInicialS,
 						alto, ancho, aColor, instalacion);
-				
-				Galeria.agregarPiezaInventario(nuevaPieza);
-				
-				if (subasta == true)
-				{
-					Galeria.agregarPiezaSubasta(nuevaPieza);
-				}
 			}
 			
 			else if (tipo == "Video")
@@ -129,24 +102,91 @@ public class CargadorGaleria {
 				nuevaPieza = new Video (id, tecnica, autor, titulo, anio, lugar, estado, 
 						disponibilidad, fechaLimite,valor, consignacion, devolucion, subasta, valorMinimoS, valorInicialS,
 						duracion, electricidad);
-				
-				Galeria.agregarPiezaInventario(nuevaPieza);
-				
-				if (subasta == true)
-				{
-					Galeria.agregarPiezaSubasta(nuevaPieza);
-				}
+			}
+			
+			Galeria.agregarPiezaInventario(nuevaPieza);
+			
+			if (subasta == true)
+			{
+				Galeria.agregarPiezaSubasta(nuevaPieza);
 			}
         }
 		
 	}
 	
-	public void cargarUsuario(String archivo, Galeria galeria) {
-		/*Lee el archivo del Usuario y genera el mapa de hash de los Usuarios*/
-	}
-	
 	public void salvarInventario(JSONArray jInventario, Galeria galeria) {
 		/*Con la tabla de hash de Inventario modifica lo que este diferente en el archivo de inventario*/
+	}
+	
+	public void cargarUsuario(String archivo, Galeria galeria) throws IOException
+	
+	{
+		/*Lee el archivo del Usuario y genera el mapa de hash de los Usuarios*/
+		
+		String jsonCompleto = new String( Files.readAllBytes( new File( archivo ).toPath( ) ) );
+		JSONObject raiz = new JSONObject( jsonCompleto );
+		JSONArray jUsuarios = raiz.getJSONArray( "Piezas" );
+		
+		int numUsuarios = jUsuarios.length( );
+		
+		for( int i = 0; i < numUsuarios; i++ )
+        {
+			JSONObject usuario = jUsuarios.getJSONObject(i);
+			String tipo = usuario.getString("tipo");
+			String login = usuario.getString("login");
+			String contraseña = usuario.getString("contraseña");
+			String id = usuario.getString("id");
+			String nombre = usuario.getString("nombre");
+			String correo = usuario.getString("correo");
+			int numero = usuario.getInt("numero");
+			
+			Usuario nuevoUsuario = null;
+			
+			if (tipo == "Comprador")
+			{
+				boolean verificado = usuario.getBoolean("verificado");
+				double dineroActual = usuario.getDouble("dineroActual");
+				double limiteCompras = usuario.getDouble("limiteCompras");
+				
+				nuevoUsuario = new Comprador(login, contraseña, id, nombre, correo, numero, verificado,
+						dineroActual,limiteCompras);
+			}
+			
+			else if (tipo == "Propietario")
+			{
+				boolean verificado = usuario.getBoolean("verificado");
+				List<String> estadoPieza = (List<String>) usuario.get("estadoPieza");
+				Map<String,Pieza> historial = (Map<String, Pieza>) usuario.get("historial");
+				
+				nuevoUsuario = new Propietario(login, contraseña, id, nombre, correo, numero, 
+						verificado, estadoPieza, historial);
+			}
+			else if (tipo == "Cajero")
+			{
+				boolean accesoGaleria = usuario.getBoolean("accesoGaleria");
+				
+				nuevoUsuario = new Cajero(login, contraseña, id, nombre, correo, numero,accesoGaleria);
+			}
+			else if (tipo == "Operador")
+			{
+				boolean accesoGaleria = usuario.getBoolean("accesoGaleria");
+				int turnoAnterior = usuario.getInt("turnoAnterior");
+				Map<String,Oferta> ofertas = (Map<String, Oferta>) usuario.get("ofertas");
+				
+				nuevoUsuario = new Operador(login, contraseña, id, nombre, correo, numero, 
+						accesoGaleria, turnoAnterior, ofertas);
+			}
+			
+			else if (tipo == "Administrador")
+			{
+				boolean accesoGaleria = usuario.getBoolean("accesoGaleria");
+				
+				nuevoUsuario = new Administrador(login, contraseña, id, nombre, correo, numero, accesoGaleria);
+			}
+			
+			Galeria.agregarUsuario(nuevoUsuario);
+
+        }
 	}
 	
 	public void salvarUsuario(JSONArray jUsuario, Galeria galeria) {

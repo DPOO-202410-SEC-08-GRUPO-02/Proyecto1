@@ -2,7 +2,7 @@ package Galeria;
 
 public class Administrador extends Empleado{
 	
-	public Administrador(String Login, String Contraseña,String ID,String Nombre,String Correo,int Numero, Boolean AccesoGaleria) {
+	public Administrador(String Login, String Contraseña,String ID,String Nombre,String Correo,int Numero, boolean AccesoGaleria) {
 		super(Login,Contraseña,ID,Nombre,Correo, Numero,AccesoGaleria);
 		this.login=Login;
 		this.contraseña=Contraseña;
