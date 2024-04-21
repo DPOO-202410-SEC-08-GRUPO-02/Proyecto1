@@ -5,9 +5,9 @@ import java.util.Map;
 public class Subasta {
 	
 	private Compra compra; 
-	private Oferta ganador;
+	private static Oferta ganador;
 	
-	public static void generarOferta(Comprador comprador, Pieza pieza, double valor) 
+	public static String generarOferta(Comprador comprador, Pieza pieza, double valor) 
 	{
 		/* No se (┬┬﹏┬┬), Majo ayudaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 		 * aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -18,13 +18,26 @@ public class Subasta {
 		
 		/*Luego te ayudo q tengo sueño*/
 		
-		int turnoAnterior = Operador.getTurnoAnterior();
-		String turno = Operador.generarTurno(turnoAnterior);
+		boolean verificado = comprador.getVerificado();
 		
-		Oferta oferta = new Oferta(turno, valor, comprador, pieza);
-		boolean nuevaOferta = Operador.agregarOferta(oferta);
-		
-		return nuevaOferta;
+		if (verificado == true)
+		{
+			int turnoAnterior = Operador.getTurnoAnterior();
+			String turno = Operador.generarTurno(turnoAnterior);
+			
+			Oferta oferta = new Oferta(turno, valor, comprador, pieza);
+			Operador.agregarOferta(oferta);
+			
+			double valorM = pieza.getValorMinimoS();
+			
+			if (valor>= valorM)
+			{
+				ganador = Operador.elegirGanador(turno);
+			}
+			return "Oferta realizada con exito";
+		}
+		else
+			return "Comprador no verificado";
 	}
 	
 	public void verificarUsuario(Comprador comprador) 
@@ -40,7 +53,7 @@ public class Subasta {
 	
 	public double ofertaAleatoria()
 	{
-		
+		return -0.0;
 	}
 	
 	public Oferta getGanador()

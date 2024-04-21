@@ -43,6 +43,7 @@ public class Comprador extends Cliente{
 		 */
 		
 		Subasta.generarOferta(this, pieza, valor);
+
 	}
 	
 	public void comprarPieza(Pieza pieza) {
