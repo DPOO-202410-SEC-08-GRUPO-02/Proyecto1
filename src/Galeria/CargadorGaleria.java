@@ -2,8 +2,8 @@ package Galeria;
 
 import java.io.FileWriter;
 import java.io.FileReader;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 public class CargadorGaleria {
 
