@@ -1,5 +1,7 @@
 package Galeria;
 
+import java.util.Map;
+
 public class Usuario {
 			protected String login;
 			protected String contraseña;
@@ -16,7 +18,12 @@ public class Usuario {
 				this.correo=Correo;
 				this.numero=Numero;
 			}
-
+	public static Map<String,Usuario> getUsuarios()
+	{
+		Map<String,Usuario> usuarios = Galeria.getUsuariosMap();
+		return usuarios;
+	}
+	
 	public String getLogin() {
 		return login;
 	}

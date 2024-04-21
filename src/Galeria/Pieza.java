@@ -16,10 +16,11 @@ public class Pieza {
 		protected boolean subasta;
 		protected double valorMinimoS;
 		protected double valorInicialS;
+		protected String tipo;
 		
 		
 	public Pieza(String ID, String Tecnica,String Autor,String Titulo,int Anio,String Lugar, String Estado, boolean Disponibilidad, 
-			String FechaLimite, double Valor, boolean Consignacion, boolean Devolucion, boolean Subasta, double ValorMinimoS, double ValorInicialS) {
+			String FechaLimite, double Valor, boolean Consignacion, boolean Devolucion, boolean Subasta, double ValorMinimoS, double ValorInicialS, String Tipo) {
 			this.iD=ID;
 			this.tecnica=Tecnica;
 			this.autor=Autor;
@@ -35,6 +36,7 @@ public class Pieza {
 			this.subasta=Subasta;
 			this.valorMinimoS=ValorMinimoS;
 			this.valorInicialS=ValorInicialS;
+			this.tipo=Tipo;
 		}
 	
 	
@@ -146,6 +148,10 @@ public class Pieza {
 	public void setValorInicialS(Double valorInicialS) {
 		this.valorInicialS = valorInicialS;
 	}
-	
 
+
+	public String getTipo() {
+		return tipo;
+	}
+	
 }

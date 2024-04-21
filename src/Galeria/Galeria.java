@@ -1,5 +1,6 @@
 package Galeria;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -28,15 +29,27 @@ public class Galeria {
 		return usuario;
 	}
 	
-	public static Map<String, Pieza> getInventario() {
+	public static Collection<Pieza> getInventarioValores() {
+		return inventarioMap.values();
+	}
+
+	public static Collection<Pieza> getSubastaValores() {
+		return subastaMap.values();
+	}
+
+	public Collection<Usuario> getUsuariosValores() {
+		return usuariosMap.values();
+	}
+	
+	public static Map<String, Pieza> getInventarioMap() {
 		return inventarioMap;
 	}
 
-	public static Map<String, Pieza> getSubasta() {
+	public static Map<String, Pieza> getSubastaMap() {
 		return subastaMap;
 	}
 
-	public Map<String, Usuario> getUsuarios() {
+	public static Map<String, Usuario> getUsuariosMap() {
 		return usuariosMap;
 	}
 

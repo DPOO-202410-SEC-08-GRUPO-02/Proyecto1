@@ -8,8 +8,8 @@ public class Fotografia extends Pieza{
 	
 	public Fotografia(String ID, String Tecnica,String Autor,String Titulo,int Anio,String Lugar, String Estado, boolean Disponibilidad, 
 			String FechaLimite, double Valor, boolean Consignacion, boolean Devolucion, boolean Subasta, double ValorMinimoS, double ValorInicialS,
-			double Alto, double Ancho, boolean aColor,boolean Instalacion) {
-			super(ID,Tecnica,Autor,Titulo,Anio,Lugar,Estado,Disponibilidad,FechaLimite,Valor,Consignacion,Devolucion,Subasta,ValorMinimoS,ValorInicialS);
+			String Tipo, double Alto, double Ancho, boolean aColor,boolean Instalacion) {
+			super(ID,Tecnica,Autor,Titulo,Anio,Lugar,Estado,Disponibilidad,FechaLimite,Valor,Consignacion,Devolucion,Subasta,ValorMinimoS,ValorInicialS, Tipo);
 			this.iD=ID;
 			this.tecnica=Tecnica;
 			this.autor=Autor;
@@ -25,7 +25,7 @@ public class Fotografia extends Pieza{
 			this.subasta=Subasta;
 			this.valorMinimoS=ValorMinimoS;
 			this.valorInicialS=ValorInicialS;
-			
+			this.tipo=Tipo;
 			this.alto=Alto;
 			this.ancho=Ancho;
 			this.aColor=aColor;
