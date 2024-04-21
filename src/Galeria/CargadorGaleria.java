@@ -1,7 +1,10 @@
 package Galeria;
 
-import java.io.FileWriter;
-import java.io.FileReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.nio.file.Files;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
