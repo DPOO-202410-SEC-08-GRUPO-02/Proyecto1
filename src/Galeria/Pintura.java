@@ -4,12 +4,12 @@ public class Pintura extends Pieza{
 	private double alto;
 	private double ancho;
 	private String movimientoArtistico;
-	private Boolean instalacion;
+	private boolean instalacion;
 	
-	public Pintura(String ID, String Tecnica,String Autor,String Titulo,int Anio,String Lugar, String Estado, Boolean Disponibilidad, 
-			String FechaLimite, double Valor, Boolean Consignacion, Boolean Devolucion, Boolean Subasta, Double ValorMinimoS, Double ValorInicialS,
-			double Alto, double Ancho, String MovimientoArtistico, Boolean Instalacion) {
-			super(ID,Tecnica,Autor,Titulo,Anio,Lugar,Estado,Disponibilidad,FechaLimite,Valor,Consignacion,Devolucion,Subasta,ValorMinimoS,ValorInicialS);
+	public Pintura(String ID, String Tecnica,String Autor,String Titulo,int Anio,String Lugar, String Estado, boolean Disponibilidad, 
+			String FechaLimite, double Valor, boolean Consignacion, boolean Devolucion, boolean Subasta, double ValorMinimoS, double ValorInicialS,
+			String Tipo, double Alto, double Ancho, String MovimientoArtistico, boolean Instalacion) {
+			super(ID,Tecnica,Autor,Titulo,Anio,Lugar,Estado,Disponibilidad,FechaLimite,Valor,Consignacion,Devolucion,Subasta,ValorMinimoS,ValorInicialS, Tipo);
 			this.iD=ID;
 			this.tecnica=Tecnica;
 			this.autor=Autor;
@@ -25,7 +25,7 @@ public class Pintura extends Pieza{
 			this.subasta=Subasta;
 			this.valorMinimoS=ValorMinimoS;
 			this.valorInicialS=ValorInicialS;
-			
+			this.tipo=Tipo;
 			this.alto=Alto;
 			this.ancho=Ancho;
 			this.movimientoArtistico=MovimientoArtistico;

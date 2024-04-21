@@ -50,7 +50,7 @@ public class Subasta {
 
 	public static Map<String, Pieza> getSubasta() 
 	{
-		Map<String, Pieza> subasta= Galeria.getSubasta();
+		Map<String, Pieza> subasta= Galeria.getSubastaMap();
 		return subasta;
 	}
 	

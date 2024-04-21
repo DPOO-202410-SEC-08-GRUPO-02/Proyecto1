@@ -8,19 +8,23 @@ import java.util.Map;
 public class Propietario extends Cliente{
 	
 	private  List<String> estadoPiezas= new ArrayList<String>( );
-	private Map<String,Pieza> HistorialPiezas= new HashMap<String,Pieza>();
+	private Map<String,Pieza> historialPiezas= new HashMap<String,Pieza>();
 	private Comprador comprador;
 	
-	public Propietario (String Login, String Contraseña,String ID,String Nombre,String Correo,int Numero, Boolean Verificado, List<String> EstadoPiezas) {
-		super(Login,Contraseña,ID,Nombre,Correo, Numero,Verificado);
+	public Propietario (String Login, String Contraseña,String ID,String Nombre,String Correo,int Numero, String Tipo, boolean Verificado, 
+			List<String> EstadoPiezas, Map<String,Pieza> HistorialPiezas) 
+	{
+		super(Login,Contraseña,ID,Nombre,Correo, Numero, Tipo, Verificado);
 		this.login=Login;
 		this.contraseña=Contraseña;
 		this.iD=ID;
 		this.nombre=Nombre;
 		this.correo=Correo;
 		this.numero=Numero;
+		this.tipo=Tipo;
 		this.verificado=Verificado;
 		this.estadoPiezas=EstadoPiezas;
+		this.historialPiezas = HistorialPiezas;
 	}
 
 	public List<String> consultarEstado() {
@@ -36,6 +40,19 @@ public class Propietario extends Cliente{
 	 
 	 public Map<String,Pieza> consultarHistorial() {
 		 /* Devuelve una lista con todas las piezas que fueron del Usuario y estan en consignacion o ya estan vendidas en cada posicion*/
-		 return HistorialPiezas;
+		 return historialPiezas;
 	}
+
+	public List<String> getEstadoPiezas() {
+		return estadoPiezas;
+	}
+
+	public Map<String, Pieza> getHistorialPiezas() {
+		return historialPiezas;
+	}
+
+	public Comprador getComprador() {
+		return comprador;
+	}
+	 
 }

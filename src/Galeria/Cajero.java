@@ -5,14 +5,15 @@ import java.util.Map;
 
 public class Cajero extends Empleado{
 	
-	public Cajero(String Login, String Contraseña,String ID,String Nombre,String Correo,int Numero, Boolean AccesoGaleria) {
-		super(Login,Contraseña,ID,Nombre,Correo, Numero,AccesoGaleria);
+	public Cajero(String Login, String Contraseña,String ID,String Nombre,String Correo,int Numero, String Tipo, boolean AccesoGaleria) {
+		super(Login,Contraseña,ID,Nombre,Correo, Numero,Tipo, AccesoGaleria);
 		this.login=Login;
 		this.contraseña=Contraseña;
 		this.iD=ID;
 		this.nombre=Nombre;
 		this.correo=Correo;
 		this.numero=Numero;
+		this.tipo=Tipo;
 		this.accesoGaleria=AccesoGaleria;
 	}
 	

@@ -16,7 +16,7 @@ public class Inventario {
 	
 	public static Map<String,Pieza> getInventario()
 	{
-		Map<String,Pieza> inventario = Galeria.getInventario();
+		Map<String,Pieza> inventario = Galeria.getInventarioMap();
 		return inventario;
 	}
 	

@@ -6,15 +6,15 @@ public class Escultura extends Pieza{
 	private double alto;
 	private double ancho;
 	private double profundidad;
-	private  List<String> materiales;
+	private List<String> materiales;
 	private double peso;
-	private Boolean instalacion;
-	private Boolean electricidad;
+	private boolean instalacion;
+	private boolean electricidad;
 	
-	public Escultura(String ID, String Tecnica,String Autor,String Titulo,int Anio,String Lugar, String Estado, Boolean Disponibilidad, 
-			String FechaLimite, double Valor, Boolean Consignacion, Boolean Devolucion, Boolean Subasta, Double ValorMinimoS, Double ValorInicialS,
-			double Alto, double Ancho, double Profundidad,List<String> Materiales,double Peso, Boolean Instalacion, Boolean Electricidad) {
-			super(ID,Tecnica,Autor,Titulo,Anio,Lugar,Estado,Disponibilidad,FechaLimite,Valor,Consignacion,Devolucion,Subasta,ValorMinimoS,ValorInicialS);
+	public Escultura(String ID, String Tecnica,String Autor,String Titulo,int Anio,String Lugar, String Estado, boolean Disponibilidad, 
+			String FechaLimite, double Valor, boolean Consignacion, boolean Devolucion, boolean Subasta, double ValorMinimoS, double ValorInicialS,
+			String Tipo, double Alto, double Ancho, double Profundidad,List<String> Materiales,double Peso, boolean Instalacion, boolean Electricidad) {
+			super(ID,Tecnica,Autor,Titulo,Anio,Lugar,Estado,Disponibilidad,FechaLimite,Valor,Consignacion,Devolucion,Subasta,ValorMinimoS,ValorInicialS,Tipo);
 			this.iD=ID;
 			this.tecnica=Tecnica;
 			this.autor=Autor;
@@ -30,7 +30,7 @@ public class Escultura extends Pieza{
 			this.subasta=Subasta;
 			this.valorMinimoS=ValorMinimoS;
 			this.valorInicialS=ValorInicialS;
-			
+			this.tipo=Tipo;
 			this.alto=Alto;
 			this.ancho=Ancho;
 			this.profundidad=Profundidad;
