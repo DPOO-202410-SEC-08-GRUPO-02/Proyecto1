@@ -5,10 +5,10 @@ import java.util.List;
 import java.util.Map;
 
 public class Comprador extends Cliente{
-	private static  double dineroActual;
+	private double dineroActual;
 	private double limiteCompras;
-	private static HashMap<String,Pieza> infoCompras= new HashMap<String,Pieza>();
-	private static HashMap<String,Double> metodoPago= new HashMap<String,Double>();
+	private HashMap<String,Pieza> infoCompras= new HashMap<String,Pieza>();
+	private HashMap<String,Double> metodoPago= new HashMap<String,Double>();
 	private Propietario Propietario;
 	
 	public Comprador (String Login, String Contraseña,String ID,String Nombre,String Correo,int Numero, Boolean Verificado, List<String> Estadopiezas,double dineroActual, double LimiteCompras ) {
@@ -24,7 +24,7 @@ public class Comprador extends Cliente{
 		this.limiteCompras=LimiteCompras;
 	}
 
-	public static double getDineroActual() {
+	public double getDineroActual() {
 		return dineroActual;
 	}
 
@@ -52,12 +52,19 @@ public class Comprador extends Cliente{
 		
 	}
 	
-	public void comprarPieza(Pieza pieza) {
+	public void comprarPieza(Pieza pieza,Comprador comprador) {
 		/* El usuario podra elegir una pieza en el Catalogo para comprar*/
+		Compra.pasarCaja(comprador, pieza, "Compra normal");
 	}
 	
 	public void editarLimite(double nuevoLimite) {
 		/* No se le presentara al comprador para que la use. el administrador es el que debe usarla.*/ 
+	}
+	
+	public void devolverPieza(Pieza pieza) {
+		/* No se le presentara al comprador para que la use. el administrador es el que debe usarla.*/
+		
+		this.infoCompras.remove(pieza.getID(),pieza);
 	}
 	
 	public void agregarPieza(Pieza pieza) {
@@ -72,11 +79,11 @@ public class Comprador extends Cliente{
 		metodoPago.put("Tarjeta de credito",tarjetaCredito);
 		metodoPago.put("Transferencia Electronica",transferenciaElectronica);
 		metodoPago.put("Efectivo",Efectivo);
-		Comprador.setMetodoPago(metodoPago);
+		setMetodoPago(metodoPago);
 	}
 
-	public static void setDineroActual(double dineroActual) {
-		Comprador.dineroActual = dineroActual;
+	public void setDineroActual(double dineroActual) {
+		this.dineroActual = dineroActual;
 	}
 
 	public void setLimiteCompras(double limiteCompras) {
@@ -87,8 +94,8 @@ public class Comprador extends Cliente{
 		this.infoCompras = infoCompras;
 	}
 
-	public static void setMetodoPago(HashMap<String,Double> metodoPago) {
-		Comprador.metodoPago= metodoPago ;
+	public void setMetodoPago(HashMap<String,Double> metodoPago) {
+		this.metodoPago= metodoPago ;
 	}
 	
 }

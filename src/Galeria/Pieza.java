@@ -1,7 +1,7 @@
 package Galeria;
 
 public class Pieza {
-		protected static String iD;
+		protected String iD;
 		protected String tecnica;
 		protected String autor;
 		protected String titulo;
@@ -38,7 +38,7 @@ public class Pieza {
 		}
 	
 	
-	public static String getID() {
+	public String getID() {
 		return iD;
 	}
 	

@@ -28,7 +28,7 @@ public class Compra {
 		return comprador;
 	}
 
-	public void pasarCaja(Comprador comprador, Pieza pieza, String tipoCompra) {
+	public static void pasarCaja(Comprador comprador, Pieza pieza, String tipoCompra) {
 		/*Se llama pasar a Caja para diferenciar que es proceso inicial de la compra, osea consultar todos 
 		 * los datos necesarios y mandar a verificarlos al cajero o al administarador y dependiendo del caso pasara a compra rechazada o confirmar compra
 		 */
@@ -61,7 +61,7 @@ public class Compra {
 	public static void confirmarCompra(Comprador comprador,Pieza pieza, double valorCompra) {
 		/* Hace todo el proceso necesario para realizar la compra, entregar la pieza al usuario, entre otros procesos*/
 		HashMap<String, Double> metodoPago= (HashMap<String, Double>) comprador.getMetodoPago();
-		double dineroActual= Comprador.getDineroActual();
+		double dineroActual= comprador.getDineroActual();
 		Cajero.realizarPago(valorCompra,comprador,metodoPago,dineroActual,pieza);
 		
 		Administrador.agregarPieza (comprador, pieza);

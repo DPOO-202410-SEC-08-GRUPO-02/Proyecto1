@@ -1,5 +1,7 @@
 package Galeria;
 
+import java.util.HashMap;
+
 public class Administrador extends Empleado{
 	
 	public Administrador(String Login, String Contraseña,String ID,String Nombre,String Correo,int Numero, Boolean AccesoGaleria) {
@@ -42,9 +44,11 @@ public class Administrador extends Empleado{
 		return true;
 	}
 	
-	public static void verificarDevolucion (Usuario usuario, Pieza pieza) {
-		/* Verifica que todo este en orden para realizar una devolucion si es asi entonces la a prueba*/
+	public static void verificarDevolucion (Comprador comprador, Pieza pieza) {
+		/* Verifica que todo este en orden para realizar una devolucion si es asi entonces la aprueba*/
 		
+		comprador.devolverPieza(pieza);
+		pieza.setDevolucion(true);
 	}
 	
 	public static void cambiarEstadoObra (Pieza pieza, String llave, String valor) {
@@ -64,22 +68,16 @@ public class Administrador extends Empleado{
 		/* Verifica que todo este en orden segun el limite del comprador y el dinero actual*/
 		
 		double dineroActual = comprador.getDineroActual();
-		double limiteCompras = comprador.getLimiteCompras();
+		HashMap<String, Double> metodoPago= (HashMap<String, Double>) comprador.getMetodoPago();
 		
-		if (valor <= limiteCompras)
-		{
+		boolean Saldo =Cajero.verificarSaldo(valor, comprador, metodoPago,dineroActual );
+		boolean Limite = Cajero.verificarLimite(valor, comprador);
+		
+		if ((Saldo && Limite) == true)
 			return true;
-		}
-		else 
-		{
-			if (valor <= dineroActual)
-			{
-				comprador.setLimiteCompras(valor);
-				return true;
-			}
-			else
-				return false;
-		}
+		else
+			return false;
+		
 	}
 	
 	public static void agregarPieza (Comprador comprador, Pieza pieza) {
@@ -89,6 +87,12 @@ public class Administrador extends Empleado{
 	
 	public static void ingresarPieza (Pieza pieza) {
 		/* Ingresa una pieza totalmente nueva al inventario de la galeria*/
+		Inventario.agregarPiezaInventario(pieza);
+	}
+	
+	public static void ingresarPiezaConsignacion (Pieza pieza, String fechaLim) {
+		/* Ingresa una pieza totalmente nueva al inventario de la galeria en estado de consignacion*/
+		Inventario.modificarConsignacion(fechaLim, pieza);
 		Inventario.agregarPiezaInventario(pieza);
 	}
 }

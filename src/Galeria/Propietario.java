@@ -30,6 +30,8 @@ public class Propietario extends Cliente{
 
 	 public void consignarPieza(Pieza pieza, String fechaLim) {
 		 /* Da una pieza a la Galeria con el atributo consignacion TRUE y una fecha limite*/
+		 Administrador.ingresarPiezaConsignacion(pieza, fechaLim);
+		 
 	 }
 	 
 	 public Map<String,Pieza> consultarHistorial() {

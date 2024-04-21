@@ -18,20 +18,7 @@ public class Cajero extends Empleado{
 	
 	public static void realizarPago(double valorCompra, Comprador comprador, HashMap<String, Double> metodoPago,double dineroActual,Pieza pieza) {
 		/* Descuenta el dinero de el dinero actual del comprador pero esto va de metodo de pago en metodo de pago*/
-		
-		boolean Limite = verificarLimite(valorCompra, comprador);
-		
-		if (Limite != true){
-		
-			Compra.compraRechazada(comprador, pieza);
-		}
-		
-		boolean Saldo =verificarSaldo(valorCompra, comprador, metodoPago,dineroActual );
-		
-		if (Saldo != true){
-			Compra.compraRechazada(comprador, pieza);
-		}
-		
+			
 		double tarjetaCredito=metodoPago.get("Tarjeta de Credito");
 		double transferenciaElectronica= metodoPago.get("Transferencia Electronica");
 		double Efectivo= metodoPago.get("Efectivo");
@@ -72,12 +59,12 @@ public class Cajero extends Empleado{
 	}
 	
 	public static boolean verificarSaldo(double valorCompra, Comprador comprador, HashMap<String, Double> metodoPago, double dineroActual) {
-		/*Verifica si el saldo del comprador es suficiente para comprar la obra*/
+		/*Verifica si el saldo del comprador es suficiente para comprar la obra y que sus metodos de pago si sean igual al dinero actual*/
 		
 		double Total=  metodoPago.get("Tarjeta de Credito")+ metodoPago.get("Transferencia Electronica") + metodoPago.get("Efectivo");
 		
-		if (dineroActual != Total) {
-			
+		if (dineroActual == Total) {
+			if (dineroActual > valorCompra)
 			return true;
 		}
 		
@@ -87,6 +74,7 @@ public class Cajero extends Empleado{
 	public static boolean verificarLimite(double valorCompra, Comprador comprador) {
 		/*Verifica si el limite del comprador es suficiente para comprar la obra*/
 		double limiteCompras = comprador.getLimiteCompras();
+		double dineroActual = comprador.getDineroActual();
 		
 		if (valorCompra <= limiteCompras)
 		{
@@ -94,7 +82,13 @@ public class Cajero extends Empleado{
 		}
 		else 
 		{
-			return false;
+			if (valorCompra <= dineroActual)
+			{
+				comprador.setLimiteCompras(valorCompra);
+				return true;
+			}
+			else
+				return false;
 		}
 	}
 }

@@ -20,12 +20,12 @@ public class Inventario {
 		return inventario;
 	}
 	
-	public static void modificarDisponibilidad(Pieza pieza, Boolean disponibilidad) {
+	public void modificarDisponibilidad(Pieza pieza, Boolean disponibilidad) {
 		/*Modifica la Disponibilidad de una pieza*/
 		pieza.setDisponibilidad(disponibilidad);
 	}
 	
-	public static void modificarEstado(Pieza pieza, String Estado) {
+	public void modificarEstado(Pieza pieza, String Estado) {
 		/*Modifica el Estado de una pieza*/
 		pieza.setEstado(Estado);
 	}
@@ -36,7 +36,7 @@ public class Inventario {
 		pieza.setFechaLimite(fechaLimite);
 	}
 
-	public static void modificarDevolucion(Pieza pieza, Boolean Devolucion) {
+	public void modificarDevolucion(Pieza pieza, Boolean Devolucion) {
 		/*Modifica la Devolucion de una pieza*/
 		pieza.setDevolucion(Devolucion);
 	}
