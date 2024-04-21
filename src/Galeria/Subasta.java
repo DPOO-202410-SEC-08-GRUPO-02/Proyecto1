@@ -33,6 +33,7 @@ public class Subasta {
 			if (valor>= valorM)
 			{
 				ganador = Operador.elegirGanador(turno);
+				return "Ha ganado la subasta";
 			}
 			return "Oferta realizada con exito";
 		}

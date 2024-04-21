@@ -40,14 +40,20 @@ public class Galeria {
 	}
 
 	public void agregarPiezaSubasta(Pieza pieza) {
-		/*Agrega una pieza al hash map de Subastas*/
+		
+		String id = pieza.getID();
+		subastaMap.put(id, pieza);
 	}
 	
 	public void agregarPiezaInventario(Pieza pieza) {
 		/*Agrega una pieza al hash map de Inventario*/
+		String id = pieza.getID();
+		inventarioMap.put(id, pieza);
 	}
 	
 	public void agregarUsuario(Usuario usuario) {
 		/*Agrega un usuario al hash map de Usuario*/
+		String id = usuario.getID();
+		usuariosMap.put(id, usuario);
 	}
 }

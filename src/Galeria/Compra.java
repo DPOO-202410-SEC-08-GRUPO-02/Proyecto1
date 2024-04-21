@@ -25,10 +25,15 @@ public class Compra {
 		return comprador;
 	}
 
-	public void pasarCaja(Comprador comprador) {
+	public void pasarCaja(Comprador comprador, Pieza pieza) {
 		/*Se llama pasar a Caja para diferenciar que es proceso inicial de la compra, osea consultar todos 
 		 * los datos necesarios y mandar a verificarlos al cajero o al administarador y dependiendo del caso pasara a compra rechazada o confirmar compra
 		 */
+		
+		String llave = "disponibilidad";
+		Administrador.cambiarEstadoObra(pieza, llave, "false");
+		
+		
 	}
 	
 	public void confirmarCompra(Comprador comprador, double valorCompra) {

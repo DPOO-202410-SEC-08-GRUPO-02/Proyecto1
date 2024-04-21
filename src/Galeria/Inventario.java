@@ -1,11 +1,19 @@
 package Galeria;
 
+import java.util.Map;
+
 public class Inventario {
 
 	public Pieza getPiezaInventario(String idPieza) {
 		/*Obtiene la informacion de una pieza*/
 		Pieza pieza = Galeria.getPiezaInventario(idPieza);
 		return pieza;
+	}
+	
+	public Map<String,Pieza> getInventario()
+	{
+		Map<String,Pieza> inventario = Galeria.getInventario();
+		return inventario;
 	}
 	
 	public void modificarDisponibilidad(Pieza pieza) {
