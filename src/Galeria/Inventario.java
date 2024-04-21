@@ -20,19 +20,24 @@ public class Inventario {
 		return inventario;
 	}
 	
-	public static void modificarDisponibilidad(Pieza pieza) {
+	public static void modificarDisponibilidad(Pieza pieza, Boolean disponibilidad) {
 		/*Modifica la Disponibilidad de una pieza*/
+		pieza.setDisponibilidad(disponibilidad);
 	}
 	
-	public static void modificarEstado(Pieza pieza) {
+	public static void modificarEstado(Pieza pieza, String Estado) {
 		/*Modifica el Estado de una pieza*/
+		pieza.setEstado(Estado);
 	}
 
 	public static void modificarConsignacion(String fechaLimite, Pieza pieza) {
 		/*Modifica la consignacion de una pieza y elimina la fecha limite en caso de que se venda o devuelva al propietario*/
+		pieza.setConsignacion(true);
+		pieza.setFechaLimite(fechaLimite);
 	}
 
-	public static void modificarDevolucion(Pieza pieza) {
+	public static void modificarDevolucion(Pieza pieza, Boolean Devolucion) {
 		/*Modifica la Devolucion de una pieza*/
+		pieza.setDevolucion(Devolucion);
 	}
 }

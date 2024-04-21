@@ -1,5 +1,8 @@
 package Galeria;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Compra {
 	
 	private double valorCompra;
@@ -46,17 +49,28 @@ public class Compra {
 		}
 		
 		boolean compraVerificada = Administrador.verificarCompra(comprador, pieza, valor);
-//		Keviiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiin
-//		Con este boolean se sabe si fue exitosa o no
+		
+		
+		if(compraVerificada ==true) {
+			Compra.confirmarCompra(comprador, pieza, valor);
+		}else{
+			Compra.compraRechazada(comprador, pieza);
+		}
 	}
 	
-	public void confirmarCompra(Comprador comprador, double valorCompra) {
+	public static void confirmarCompra(Comprador comprador,Pieza pieza, double valorCompra) {
 		/* Hace todo el proceso necesario para realizar la compra, entregar la pieza al usuario, entre otros procesos*/
+		HashMap<String, Double> metodoPago= (HashMap<String, Double>) comprador.getMetodoPago();
+		double dineroActual= Comprador.getDineroActual();
+		Cajero.realizarPago(valorCompra,comprador,metodoPago,dineroActual,pieza);
+		
+		Administrador.agregarPieza (comprador, pieza);
 	}
 	
-	public void compraRechazada (Comprador comprador) {
+	public static void compraRechazada (Comprador comprador, Pieza pieza) {
 		/*Cuando algo en la verificacion de pasar a caja sale mal entonces devolvera todo a como estaba antes 
 		 * de que el usuario eligiera una pieza para la compra y intenta resolvr el problema por el cual el comprador no es apto para comprar la pieza
 		 */
+		Administrador.cambiarEstadoObra(pieza,"disponibilidad","true");
 	}
 }

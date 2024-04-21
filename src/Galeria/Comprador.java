@@ -5,12 +5,13 @@ import java.util.List;
 import java.util.Map;
 
 public class Comprador extends Cliente{
-	private  double dineroActual;
+	private static  double dineroActual;
 	private double limiteCompras;
-	private Map<String,Pieza> infoCompras= new HashMap<String,Pieza>();
+	private static HashMap<String,Pieza> infoCompras= new HashMap<String,Pieza>();
+	private static HashMap<String,Double> metodoPago= new HashMap<String,Double>();
 	private Propietario Propietario;
 	
-	public Comprador (String Login, String Contraseña,String ID,String Nombre,String Correo,int Numero, Boolean Verificado, List<String> Estadopiezas,double DineroActual, double LimiteCompras ) {
+	public Comprador (String Login, String Contraseña,String ID,String Nombre,String Correo,int Numero, Boolean Verificado, List<String> Estadopiezas,double dineroActual, double LimiteCompras ) {
 		super(Login,Contraseña,ID,Nombre,Correo, Numero,Verificado);
 		this.login=Login;
 		this.contraseña=Contraseña;
@@ -19,11 +20,11 @@ public class Comprador extends Cliente{
 		this.correo=Correo;
 		this.numero=Numero;
 		this.verificado=Verificado;
-		this.dineroActual=DineroActual;
+		this.dineroActual=dineroActual;
 		this.limiteCompras=LimiteCompras;
 	}
 
-	public double getDineroActual() {
+	public static double getDineroActual() {
 		return dineroActual;
 	}
 
@@ -33,6 +34,10 @@ public class Comprador extends Cliente{
 	
 	public Map<String, Pieza> getInfoCompras() {
 		return infoCompras;
+	}
+	
+	public Map<String,Double> getMetodoPago() {
+		return metodoPago;
 	}
 
 	public String generarOfertasSubasta(Pieza pieza, double valor) {
@@ -57,22 +62,33 @@ public class Comprador extends Cliente{
 	
 	public void agregarPieza(Pieza pieza) {
 		/* No se le presentara al comprador para que la use. el administrador es el que debe usarla.*/
+		
+		this.infoCompras.put(pieza.getID(),pieza);
 	}
 	
-	public void editarDineroActual(double nuevoValor) {
+	public  void editarDineroActual(double dineroActual, double tarjetaCredito, double transferenciaElectronica, double Efectivo, HashMap<String,Double> metodoPago) {
 		/* No se le presentara al comprador para que la use. el cajero es el que debe usarla (para descontar el dinero en una compra por ejemplo).*/
+		setDineroActual(dineroActual);
+		metodoPago.put("Tarjeta de credito",tarjetaCredito);
+		metodoPago.put("Transferencia Electronica",transferenciaElectronica);
+		metodoPago.put("Efectivo",Efectivo);
+		Comprador.setMetodoPago(metodoPago);
 	}
 
-	public void setDineroActual(double dineroActual) {
-		this.dineroActual = dineroActual;
+	public static void setDineroActual(double dineroActual) {
+		Comprador.dineroActual = dineroActual;
 	}
 
 	public void setLimiteCompras(double limiteCompras) {
 		this.limiteCompras = limiteCompras;
 	}
 
-	public void setInfoCompras(Map<String, Pieza> infoCompras) {
+	public void setInfoCompras(HashMap<String, Pieza> infoCompras) {
 		this.infoCompras = infoCompras;
+	}
+
+	public static void setMetodoPago(HashMap<String,Double> metodoPago) {
+		Comprador.metodoPago= metodoPago ;
 	}
 	
 }

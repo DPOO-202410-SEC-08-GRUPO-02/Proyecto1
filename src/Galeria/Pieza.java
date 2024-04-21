@@ -1,7 +1,7 @@
 package Galeria;
 
 public class Pieza {
-		protected String iD;
+		protected static String iD;
 		protected String tecnica;
 		protected String autor;
 		protected String titulo;
@@ -38,7 +38,7 @@ public class Pieza {
 		}
 	
 	
-	public String getID() {
+	public static String getID() {
 		return iD;
 	}
 	
@@ -122,6 +122,9 @@ public class Pieza {
 		this.disponibilidad = disponibilidad;
 	}
 
+	public void setDevolucion(Boolean devolucion) {
+		this.devolucion= devolucion;
+	}
 
 	public void setFechaLimite(String fechaLimite) {
 		this.fechaLimite = fechaLimite;
