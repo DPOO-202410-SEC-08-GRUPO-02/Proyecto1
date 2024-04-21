@@ -194,6 +194,8 @@ public class CargadorGaleria {
 				jPieza.put("duracion", video.getDuracion());
 				jPieza.put("electricidad", video.getElectricidad());
 			}
+			
+			jInventario.put(jPieza);
         }
 		
 		jobject.put( "Piezas", jInventario );
@@ -207,6 +209,75 @@ public class CargadorGaleria {
 	public void salvarUsuario(String archivo, Galeria galeria) throws IOException
 	{
 		/*Con la tabla de hash de Usuario modifica lo que este diferente en el archivo de Usuario*/
+		
+
+		JSONObject jobject = new JSONObject( );
+		JSONArray jUsuarios = new JSONArray( );
+		
+		for( Usuario usuario : Galeria.getUsuariosValores() )
+        {
+			JSONObject jUsuario = new JSONObject( );
+			
+			jUsuario.put("login", usuario.getLogin());
+			jUsuario.put("contraseña", usuario.getContraseña());
+			jUsuario.put("id", usuario.getID());
+			jUsuario.put("nombre", usuario.getNombre());
+			jUsuario.put("correo", usuario.getCorreo());
+			jUsuario.put("numero", usuario.getNumero());
+			jUsuario.put("tipo", usuario.getTipo());
+			
+			String tipo = usuario.getTipo();
+			
+			if (tipo == "Comprador")
+			{
+				Comprador comprador = (Comprador) usuario;
+				
+				jUsuario.put("verificado", comprador.getVerificado());
+				jUsuario.put("dineroActual", comprador.getDineroActual());
+				jUsuario.put("limiteCompras", comprador.getLimiteCompras());
+			}
+			
+			else if (tipo == "Propietario")
+			{
+				Propietario propietario = (Propietario) usuario;
+				
+				jUsuario.put("verificado", propietario.getVerificado());
+				jUsuario.put("estadoPiezas", propietario.getEstadoPiezas());
+				jUsuario.put("historialPiezas", propietario.getHistorialPiezas());
+
+			}
+			else if (tipo == "Cajero")
+			{
+				Cajero cajero = (Cajero) usuario;
+				
+				jUsuario.put("accesoGaleria", cajero.getAccesoGaleria());
+				
+			}
+			else if (tipo == "Operador")
+			{
+				Operador operador = (Operador) usuario;
+				
+				jUsuario.put("accesoGaleria", operador.getAccesoGaleria());
+				jUsuario.put("turnoAnterior", operador.getTurnoAnterior());
+				jUsuario.put("ofertas", operador.getOfertas());
+				
+			}
+			
+			else if (tipo == "Administrador")
+			{
+				Administrador administrador = (Administrador) usuario;
+				
+				jUsuario.put("accesoGaleria", administrador.getAccesoGaleria());
+			}
+			
+			jUsuarios.put(jUsuario);
+        }
+		
+		jobject.put( "Piezas", jUsuarios );
+		
+		PrintWriter pw = new PrintWriter( archivo );
+        jobject.write( pw, 2, 0 );
+        pw.close( );
 	}
 	
 	public void cargarUsuario(String archivo, Galeria galeria) throws IOException
@@ -239,24 +310,24 @@ public class CargadorGaleria {
 				double dineroActual = usuario.getDouble("dineroActual");
 				double limiteCompras = usuario.getDouble("limiteCompras");
 				
-				nuevoUsuario = new Comprador(login, contraseña, id, nombre, correo, numero, verificado,
+				nuevoUsuario = new Comprador(login, contraseña, id, nombre, correo, numero, tipo, verificado,
 						dineroActual,limiteCompras);
 			}
 			
 			else if (tipo == "Propietario")
 			{
 				boolean verificado = usuario.getBoolean("verificado");
-				List<String> estadoPieza = (List<String>) usuario.get("estadoPieza");
-				Map<String,Pieza> historial = (Map<String, Pieza>) usuario.get("historial");
+				List<String> estadoPieza = (List<String>) usuario.get("estadoPiezas");
+				Map<String,Pieza> historial = (Map<String, Pieza>) usuario.get("historialPiezas");
 				
-				nuevoUsuario = new Propietario(login, contraseña, id, nombre, correo, numero, 
+				nuevoUsuario = new Propietario(login, contraseña, id, nombre, correo, numero, tipo,
 						verificado, estadoPieza, historial);
 			}
 			else if (tipo == "Cajero")
 			{
 				boolean accesoGaleria = usuario.getBoolean("accesoGaleria");
 				
-				nuevoUsuario = new Cajero(login, contraseña, id, nombre, correo, numero,accesoGaleria);
+				nuevoUsuario = new Cajero(login, contraseña, id, nombre, correo, numero, tipo,accesoGaleria);
 			}
 			else if (tipo == "Operador")
 			{
@@ -264,7 +335,7 @@ public class CargadorGaleria {
 				int turnoAnterior = usuario.getInt("turnoAnterior");
 				Map<String,Oferta> ofertas = (Map<String, Oferta>) usuario.get("ofertas");
 				
-				nuevoUsuario = new Operador(login, contraseña, id, nombre, correo, numero, 
+				nuevoUsuario = new Operador(login, contraseña, id, nombre, correo, numero, tipo,
 						accesoGaleria, turnoAnterior, ofertas);
 			}
 			
@@ -272,7 +343,7 @@ public class CargadorGaleria {
 			{
 				boolean accesoGaleria = usuario.getBoolean("accesoGaleria");
 				
-				nuevoUsuario = new Administrador(login, contraseña, id, nombre, correo, numero, accesoGaleria);
+				nuevoUsuario = new Administrador(login, contraseña, id, nombre, correo, numero, tipo, accesoGaleria);
 			}
 			
 			Galeria.agregarUsuario(nuevoUsuario);

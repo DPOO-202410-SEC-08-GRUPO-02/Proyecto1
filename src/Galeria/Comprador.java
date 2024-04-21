@@ -10,14 +10,15 @@ public class Comprador extends Cliente{
 	private Map<String,Pieza> infoCompras= new HashMap<String,Pieza>();
 	private Propietario Propietario;
 	
-	public Comprador (String Login, String Contraseña,String ID,String Nombre,String Correo,int Numero, boolean Verificado,double DineroActual, double LimiteCompras ) {
-		super(Login,Contraseña,ID,Nombre,Correo, Numero,Verificado);
+	public Comprador (String Login, String Contraseña,String ID,String Nombre,String Correo,int Numero, String Tipo, boolean Verificado,double DineroActual, double LimiteCompras ) {
+		super(Login,Contraseña,ID,Nombre,Correo, Numero,Tipo,Verificado);
 		this.login=Login;
 		this.contraseña=Contraseña;
 		this.iD=ID;
 		this.nombre=Nombre;
 		this.correo=Correo;
 		this.numero=Numero;
+		this.tipo=Tipo;
 		this.verificado=Verificado;
 		this.dineroActual=DineroActual;
 		this.limiteCompras=LimiteCompras;

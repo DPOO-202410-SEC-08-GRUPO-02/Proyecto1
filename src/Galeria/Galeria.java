@@ -37,7 +37,7 @@ public class Galeria {
 		return subastaMap.values();
 	}
 
-	public Collection<Usuario> getUsuariosValores() {
+	public static Collection<Usuario> getUsuariosValores() {
 		return usuariosMap.values();
 	}
 	
