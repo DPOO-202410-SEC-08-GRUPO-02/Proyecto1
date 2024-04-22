@@ -74,13 +74,13 @@ public class Comprador extends Cliente{
 		this.infoCompras.put(pieza.getID(),pieza);
 	}
 	
-	public  void editarDineroActual(double dineroActual, double tarjetaCredito, double transferenciaElectronica, double Efectivo, HashMap<String,Double> metodoPago) {
+	public  void editarDineroActual(double dineroActual, double tarjetaCredito, double transferenciaElectronica, double Efectivo, Map<String, Double> map) {
 		/* No se le presentara al comprador para que la use. el cajero es el que debe usarla (para descontar el dinero en una compra por ejemplo).*/
 		setDineroActual(dineroActual);
-		metodoPago.put("Tarjeta de credito",tarjetaCredito);
-		metodoPago.put("Transferencia Electronica",transferenciaElectronica);
-		metodoPago.put("Efectivo",Efectivo);
-		setMetodoPago(metodoPago);
+		map.put("Tarjeta de credito",tarjetaCredito);
+		map.put("Transferencia Electronica",transferenciaElectronica);
+		map.put("Efectivo",Efectivo);
+		setMetodoPago(map);
 	}
 
 	public void setDineroActual(double dineroActual) {
@@ -95,8 +95,8 @@ public class Comprador extends Cliente{
 		this.infoCompras = infoCompras;
 	}
 
-	public void setMetodoPago(HashMap<String,Double> metodoPago) {
-		this.metodoPago= metodoPago ;
+	public void setMetodoPago(Map<String, Double> map) {
+		this.metodoPago= (HashMap<String, Double>) map ;
 	}
 	
 }

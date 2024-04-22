@@ -17,12 +17,12 @@ public class Cajero extends Empleado{
 		this.accesoGaleria=AccesoGaleria;
 	}
 	
-	public static void realizarPago(double valorCompra, Comprador comprador, HashMap<String, Double> metodoPago,double dineroActual,Pieza pieza) {
+	public static void realizarPago(double valorCompra, Comprador comprador, Map<String, Double> map,double dineroActual,Pieza pieza) {
 		/* Descuenta el dinero de el dinero actual del comprador pero esto va de metodo de pago en metodo de pago*/
 			
-		double tarjetaCredito=metodoPago.get("Tarjeta de Credito");
-		double transferenciaElectronica= metodoPago.get("Transferencia Electronica");
-		double Efectivo= metodoPago.get("Efectivo");
+		double tarjetaCredito=map.get("Tarjeta de Credito");
+		double transferenciaElectronica= map.get("Transferencia Electronica");
+		double Efectivo= map.get("Efectivo");
 		
 		if (tarjetaCredito - valorCompra >= 0) {
 			tarjetaCredito= tarjetaCredito - valorCompra;
@@ -54,15 +54,15 @@ public class Cajero extends Empleado{
 			}
 		}
 		
-		comprador.editarDineroActual(dineroActual, tarjetaCredito, transferenciaElectronica, Efectivo, metodoPago);
+		comprador.editarDineroActual(dineroActual, tarjetaCredito, transferenciaElectronica, Efectivo, map);
 		
 		
 	}
 	
-	public static boolean verificarSaldo(double valorCompra, Comprador comprador, HashMap<String, Double> metodoPago, double dineroActual) {
+	public static boolean verificarSaldo(double valorCompra, Comprador comprador, Map<String, Double> map, double dineroActual) {
 		/*Verifica si el saldo del comprador es suficiente para comprar la obra y que sus metodos de pago si sean igual al dinero actual*/
 		
-		double Total=  metodoPago.get("Tarjeta de Credito")+ metodoPago.get("Transferencia Electronica") + metodoPago.get("Efectivo");
+		double Total=  map.get("Tarjeta de Credito")+ map.get("Transferencia Electronica") + map.get("Efectivo");
 		
 		if (dineroActual == Total) {
 			if (dineroActual > valorCompra)
