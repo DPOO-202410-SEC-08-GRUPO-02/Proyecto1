@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -12,7 +13,7 @@ import org.json.JSONObject;
 
 public class CargadorGaleria {
 	
-	public void cargarInventario(String archivo, Galeria galeria) throws IOException
+	public static void cargarInventario(String archivo) throws IOException
 	{
 		/*Lee el archivo del inventario y genera el mapa de hash de inventario y subasta*/
 		String jsonCompleto = new String( Files.readAllBytes( new File( archivo ).toPath( ) ) );
@@ -24,6 +25,9 @@ public class CargadorGaleria {
 		for( int i = 0; i < numPiezas; i++ )
         {
 			JSONObject pieza = jInventario.getJSONObject(i);
+			
+			System.out.println(pieza);
+			
 			String tipo = pieza.getString("tipo");
 			String id = pieza.getString("id");
 			String tecnica = pieza.getString("tecnica");
@@ -44,7 +48,7 @@ public class CargadorGaleria {
 			
 			Pieza nuevaPieza = null;
 			
-			if (tipo == "Pintura")
+			if(tipo.equals("Pintura"))
 			{
 				double alto = pieza.getDouble("alto");
 				double ancho = pieza.getDouble("ancho");
@@ -55,12 +59,16 @@ public class CargadorGaleria {
 						alto, ancho, movimientoArtistico, instalacion);
 			
 			}
-			else if (tipo == "Escultura")
+			else if (tipo.equals("Escultura"))
 			{
 				double alto = pieza.getDouble("alto");
 				double ancho = pieza.getDouble("ancho");
 				double profundidad = pieza.getDouble("profundidad");
-				List<String> materiales = (List<String>) pieza.get("materiales");
+				JSONArray materialesArray = (JSONArray) pieza.getJSONArray("materiales");
+				List<String> materiales = new ArrayList<>();
+	            for (Object material : materialesArray) {
+	                materiales.add((String) material);
+	            }
 				double peso = pieza.getDouble("peso");
 				boolean instalacion = pieza.getBoolean("instalacion");
 				boolean electricidad = pieza.getBoolean("electricidad");
@@ -70,7 +78,7 @@ public class CargadorGaleria {
 						alto, ancho, profundidad, materiales, peso, instalacion, electricidad);
 			}
 			
-			else if (tipo == "Impresion")
+			else if (tipo.equals("Impresion"))
 			{
 				double alto = pieza.getDouble("alto");
 				double ancho = pieza.getDouble("ancho");
@@ -82,7 +90,7 @@ public class CargadorGaleria {
 						alto, ancho, soporte, instalacion);
 			}
 			
-			else if (tipo == "Fotografia")
+			else if (tipo.equals("Fotografia"))
 			{
 				double alto = pieza.getDouble("alto");
 				double ancho = pieza.getDouble("ancho");
@@ -94,7 +102,7 @@ public class CargadorGaleria {
 						alto, ancho, aColor, instalacion);
 			}
 			
-			else if (tipo == "Video")
+			else if (tipo.equals("Video"))
 			{
 				String duracion = pieza.getString("duracion");
 				boolean electricidad = pieza.getBoolean("electricidad");
@@ -114,7 +122,7 @@ public class CargadorGaleria {
 		
 	}
 	
-	public void salvarInventario(String archivo, Galeria galeria) throws IOException
+	public static void salvarInventario(String archivo) throws IOException
 	{
 		/*Con la tabla de hash de Inventario modifica lo que este diferente en el archivo de inventario*/
 		
@@ -206,7 +214,7 @@ public class CargadorGaleria {
 		
 	}
 	
-	public void salvarUsuario(String archivo, Galeria galeria) throws IOException
+	public static void salvarUsuario(String archivo) throws IOException
 	{
 		/*Con la tabla de hash de Usuario modifica lo que este diferente en el archivo de Usuario*/
 		
@@ -280,7 +288,7 @@ public class CargadorGaleria {
         pw.close( );
 	}
 	
-	public void cargarUsuario(String archivo, Galeria galeria) throws IOException
+	public static void cargarUsuario(String archivo) throws IOException
 	
 	{
 		/*Lee el archivo del Usuario y genera el mapa de hash de los Usuarios*/
