@@ -29,127 +29,8 @@ public class Consola
 
     public static void main(String[] args) throws IOException 
     {
-//    	Pintura nuevaPieza = new Pintura(
-//    	        "123", // ID único
-//    	        "Óleo sobre lienzo", // Técnica
-//    	        "Leonardo da Vinci", // Autor
-//    	        "La Mona Lisa", // Título
-//    	        1503, // Año
-//    	        "Verona", // Lugar
-//    	        "Exhibida", // Estado
-//    	        true, // Disponibilidad
-//    	        "2024-05-30", // Fecha límite de consignación
-//    	        55.0, // Valor
-//    	        true, // En consignación
-//    	        false, // Devolución
-//    	        false, // Subasta
-//    	        0.0, // Valor mínimo de subasta
-//    	        0.0, // Valor inicial de subasta
-//    	        "Pintura", //Tipo
-//    	         0,   // Alto
-//    	         0,   //Ancho
-//    	         "Renacimiento", //Movimiento artistico
-//    	         true //Instalacion
-//    	    );
-//
-//    	    Galeria.agregarPiezaInventario(nuevaPieza);
-//    	    
-//    	    Video nuevaPieza2 = new Video(
-//        	        "124", // ID único
-//        	        "Animacion digital", // Técnica
-//        	        "Pixar Animation Studios", // Autor
-//        	        "Toy Story", // Título
-//        	        1995, // Año
-//        	        "Los angeles", // Lugar
-//        	        "Exhibida", // Estado
-//        	        true, // Disponibilidad
-//        	        "2024-06-10", // Fecha límite de consignación
-//        	        12.0, // Valor
-//        	        true, // En consignación
-//        	        false, // Devolución
-//        	        false, // Subasta
-//        	        0.0, // Valor mínimo de subasta
-//        	        0.0, // Valor inicial de subasta
-//        	        "Video", //Tipo
-//        	        "87 minutos", // Duracion
-//        	        false //Electricidad
-//        	    );
-//
-//        	    Galeria.agregarPiezaInventario(nuevaPieza2);
-//        	    
-//        	    List<String> lista = new ArrayList<>();
-//                lista.add("Marmol");
-//        	    
-//        	    Escultura obraFicticia1 = new Escultura(
-//        				"b",
-//        				"Esculpido en marmol",
-//        				"Michelangelo",
-//        				"David",
-//        				1504,
-//        				"Florencia",
-//        				"Exhibida",
-//        				true,
-//        				"0",
-//        				25.0,
-//        				false,
-//        				false,
-//        				true,
-//        				24.0,
-//        				21.0,
-//        				"Escultura",
-//        				517.0,
-//        				199.0,
-//        				114.00,
-//        				lista,
-//        				5600.0,
-//        				true,
-//        				false
-//        	    	);
-//
-//        	    	// Crear la segunda obra ficticia
-//        	    	Pieza obraFicticia2 = new Pieza(
-//        	    	    "OBRA002",
-//        	    	    "Óleo sobre lienzo",
-//        	    	    "Ana Creativa",
-//        	    	    "Reflejo Urbano",
-//        	    	    2023,
-//        	    	    "Galería Ficticia",
-//        	    	    "Disponible",
-//        	    	    true,
-//        	    	    "30/11/2024",
-//        	    	    30000.0,
-//        	    	    true,
-//        	    	    false,
-//        	    	    true,
-//        	    	    25000.0,
-//        	    	    20000.0,
-//        	    	    "Impresion"
-//        	    	);
-//
-//        	    	// Crear la tercera obra ficticia
-//        	    	Pieza obraFicticia3 = new Pieza(
-//        	    	    "OBRA003",
-//        	    	    "Escultura de bronce",
-//        	    	    "Roberto Escultor",
-//        	    	    "El Pensador Moderno",
-//        	    	    2025,
-//        	    	    "Galería Ficticia",
-//        	    	    "Disponible",
-//        	    	    true,
-//        	    	    "01/01/2025",
-//        	    	    50000.0,
-//        	    	    true,
-//        	    	    false,
-//        	    	    true,
-//        	    	    40000.0,
-//        	    	    35000.0,
-//        	    	    "Fotografia"
-//        	    	);
-//
-//        	    	// Añadir las obras ficticias a la subasta
-////        	    	Subasta.agregarPiezaInventario(obraFicticia1);
-////        	    	Subasta.agregarPiezaInventario(obraFicticia2);
-////        	    	Subasta.agregarPiezaInventario(obraFicticia3);
+    	CargadorGaleria.cargarInventario("./datos/Inventario.json");
+    	CargadorGaleria.cargarUsuario("./datos/Usuarios.json");
         mostrarMenuPrincipal();
     }
 
@@ -158,8 +39,6 @@ public class Consola
     	boolean continuar = true;
         while (continuar) 
         {
-        	
-        	CargadorGaleria.cargarInventario("./datos/Inventario.json");
         	
             System.out.println("*** BIENVENIDA A LA GALERÍA DE ARTE ***\n");
             System.out.println("1. Ver catálogo e iniciar proceso de compra");

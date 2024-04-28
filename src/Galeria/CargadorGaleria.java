@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -25,8 +26,6 @@ public class CargadorGaleria {
 		for( int i = 0; i < numPiezas; i++ )
         {
 			JSONObject pieza = jInventario.getJSONObject(i);
-			
-			System.out.println(pieza);
 			
 			String tipo = pieza.getString("tipo");
 			String id = pieza.getString("id");
@@ -295,13 +294,16 @@ public class CargadorGaleria {
 		
 		String jsonCompleto = new String( Files.readAllBytes( new File( archivo ).toPath( ) ) );
 		JSONObject raiz = new JSONObject( jsonCompleto );
-		JSONArray jUsuarios = raiz.getJSONArray( "Piezas" );
+		JSONArray jUsuarios = raiz.getJSONArray( "Usuarios" );
 		
 		int numUsuarios = jUsuarios.length( );
 		
 		for( int i = 0; i < numUsuarios; i++ )
         {
 			JSONObject usuario = jUsuarios.getJSONObject(i);
+			
+			System.out.println(usuario);
+			
 			String tipo = usuario.getString("tipo");
 			String login = usuario.getString("login");
 			String contraseña = usuario.getString("contraseña");
@@ -312,7 +314,7 @@ public class CargadorGaleria {
 			
 			Usuario nuevoUsuario = null;
 			
-			if (tipo == "Comprador")
+			if (tipo.equals("Comprador"))
 			{
 				boolean verificado = usuario.getBoolean("verificado");
 				double dineroActual = usuario.getDouble("dineroActual");
@@ -322,32 +324,51 @@ public class CargadorGaleria {
 						dineroActual,limiteCompras);
 			}
 			
-			else if (tipo == "Propietario")
+			else if (tipo.equals("Propietario"))
 			{
 				boolean verificado = usuario.getBoolean("verificado");
-				List<String> estadoPieza = (List<String>) usuario.get("estadoPiezas");
-				Map<String,Pieza> historial = (Map<String, Pieza>) usuario.get("historialPiezas");
 				
+				JSONArray estadoPiezaArray = (JSONArray) usuario.getJSONArray("estadoPiezas");
+				List<String> estadoPieza = new ArrayList<>();
+	            for (Object estadoPiezaObj : estadoPiezaArray) {
+	            	estadoPieza.add((String) estadoPiezaObj);
+	            }
+	            
+	            JSONObject historialJson = (JSONObject) usuario.get("historialPiezas");
+	            Map<String, Pieza> historial = new HashMap<>();
+	            for (Object key : historialJson.keySet()) {
+	                String clave = (String) key;
+	                Pieza pieza = (Pieza) historialJson.get(clave);
+	                historial.put(clave, pieza);
+	            }
+	            
 				nuevoUsuario = new Propietario(login, contraseña, id, nombre, correo, numero, tipo,
 						verificado, estadoPieza, historial);
 			}
-			else if (tipo == "Cajero")
+			else if (tipo.equals("Cajero"))
 			{
 				boolean accesoGaleria = usuario.getBoolean("accesoGaleria");
 				
 				nuevoUsuario = new Cajero(login, contraseña, id, nombre, correo, numero, tipo,accesoGaleria);
 			}
-			else if (tipo == "Operador")
+			else if (tipo.equals("Operador"))
 			{
 				boolean accesoGaleria = usuario.getBoolean("accesoGaleria");
 				int turnoAnterior = usuario.getInt("turnoAnterior");
-				Map<String,Oferta> ofertas = (Map<String, Oferta>) usuario.get("ofertas");
+				
+				JSONObject ofertasJson = (JSONObject) usuario.get("ofertas");
+	            Map<String, Oferta> ofertas = new HashMap<>();
+	            for (Object key : ofertasJson.keySet()) {
+	                String clave = (String) key;
+	                Oferta oferta = (Oferta) ofertasJson.get(clave);
+	                ofertas.put(clave, oferta);
+	            }
 				
 				nuevoUsuario = new Operador(login, contraseña, id, nombre, correo, numero, tipo,
 						accesoGaleria, turnoAnterior, ofertas);
 			}
 			
-			else if (tipo == "Administrador")
+			else if (tipo.equals("Administrador"))
 			{
 				boolean accesoGaleria = usuario.getBoolean("accesoGaleria");
 				
