@@ -6,7 +6,6 @@ import java.util.Map;
 import java.util.Scanner;
 import java.io.IOException;
 
-
 import Galeria.Administrador;
 import Galeria.Cajero;
 import Galeria.Compra;
